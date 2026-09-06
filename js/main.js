@@ -1,4 +1,4 @@
-﻿/**
+/**
  * Shine Coaching Institute - Main Homepage & Public Interaction Script
  * Handles animations, dynamic DB content rendering, modal forms, achievement banners, lightbox, and 1-5 star rating selector.
  */
@@ -962,3 +962,33 @@ window.selectElectiveOption = function(type) {
         if (btn) btn.classList.add("active");
     }
 };
+
+// ==========================================================================
+// GOOGLE ANALYTICS 4 (GA4) INTERACTION TRACKING
+// ==========================================================================
+document.addEventListener("DOMContentLoaded", () => {
+    // 1. WhatsApp clicks
+    document.querySelectorAll("a[href*='wa.me']").forEach(el => {
+        el.addEventListener("click", () => {
+            if (typeof window.gtag === "function") {
+                window.gtag("event", "whatsapp_click", {
+                    event_category: "Engagement",
+                    event_label: "WhatsApp Chat"
+                });
+            }
+        });
+    });
+
+    // 2. Phone call clicks
+    document.querySelectorAll("a[href^='tel:']").forEach(el => {
+        el.addEventListener("click", () => {
+            if (typeof window.gtag === "function") {
+                window.gtag("event", "phone_call_click", {
+                    event_category: "Engagement",
+                    event_label: "Phone Call Direct"
+                });
+            }
+        });
+    });
+});
+

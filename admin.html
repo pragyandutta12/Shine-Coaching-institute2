@@ -1,0 +1,888 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Admin Dashboard - Shine Coaching Institute</title>
+    <link rel="stylesheet" href="css/main.css">
+    <link rel="stylesheet" href="css/admin.css">
+    <link rel="icon" type="image/png" href="assets/images/logo.png">
+
+    <!-- Google tag (gtag.js) -->
+    <script async src="https://www.googletagmanager.com/gtag/js?id=G-TQLQ5SBEQ4"></script>
+    <script>
+      window.dataLayer = window.dataLayer || [];
+      function gtag(){dataLayer.push(arguments);}
+      gtag('js', new Date());
+
+      gtag('config', 'G-TQLQ5SBEQ4');
+    </script>
+</head>
+<body class="admin-body">
+
+    <!-- ==========================================================================
+         VIEW 1: AUTHENTICATION / MASTER PASSWORD LOGIN SCREEN
+         ========================================================================== -->
+    <div class="admin-auth-wrapper" id="adminAuthWrapper">
+        <div class="auth-card">
+            <div class="auth-header">
+                <img src="assets/images/logo.png" alt="Shine Coaching Nalbari Logo" style="width:72px; height:72px; object-fit:contain; border-radius:50%; margin:0 auto 16px; display:block; box-shadow:0 4px 14px rgba(15,23,42,0.15); border:2px solid #E2E8F0; background:#fff;">
+                <h2 class="auth-title">Admin Portal Login</h2>
+                <p class="auth-subtitle">Enter your admin password to access the Shine Coaching dashboard.</p>
+            </div>
+
+            <!-- Single Direct Admin Login -->
+            <form id="adminLoginForm">
+                <div class="form-group">
+                    <label class="form-label" for="loginPassword">
+                        <svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="#2563EB" stroke-width="2" style="vertical-align:text-bottom; margin-right:4px;"><rect x="3" y="11" width="18" height="11" rx="2" ry="2"></rect><path d="M7 11V7a5 5 0 0 1 10 0v4"></path></svg>
+                        Admin Password <span class="required">*</span>
+                    </label>
+                    <input type="password" id="loginPassword" name="loginPassword" class="form-control" placeholder="••••••••" required autocomplete="current-password" autofocus>
+                </div>
+                <button type="submit" class="btn btn-primary" style="width: 100%; padding: 13px; margin-top: 16px;">
+                    <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M15 3h4a2 2 0 0 1 2 2v14a2 2 0 0 1-2 2h-4"></path><polyline points="10 17 15 12 10 7"></polyline><line x1="15" y1="12" x2="3" y2="12"></line></svg>
+                    Log In to Dashboard
+                </button>
+            </form>
+
+            <a href="index.html" class="auth-back-link">&larr; Return to Public Website</a>
+        </div>
+    </div>
+
+    <!-- ==========================================================================
+         VIEW 2: ADMIN DASHBOARD SHELL
+         ========================================================================== -->
+    <div class="admin-layout" id="adminDashboardLayout" style="display: none;">
+        
+        <!-- SIDEBAR -->
+        <aside class="admin-sidebar" id="adminSidebar">
+            <div class="sidebar-header">
+                <img src="assets/images/logo.png" alt="Shine Coaching Nalbari Logo" style="width:42px; height:42px; object-fit:contain; border-radius:50%; background:#fff; border:1px solid #E2E8F0; flex-shrink:0;">
+                <div>
+                    <div class="sidebar-brand-name">SHINE COACHING</div>
+                    <span class="sidebar-brand-badge">Nalbari • Admin</span>
+                </div>
+            </div>
+
+            <ul class="sidebar-menu">
+                <li class="menu-heading">Main Operations</li>
+                <li>
+                    <a href="javascript:void(0)" class="sidebar-link active" data-tab="overview">
+                        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><rect x="3" y="3" width="7" height="7"></rect><rect x="14" y="3" width="7" height="7"></rect><rect x="14" y="14" width="7" height="7"></rect><rect x="3" y="14" width="7" height="7"></rect></svg>
+                        <span>Overview</span>
+                    </a>
+                </li>
+                <li>
+                    <a href="javascript:void(0)" class="sidebar-link" data-tab="demoRequests">
+                        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><rect x="3" y="4" width="18" height="18" rx="2" ry="2"></rect><line x1="16" y1="2" x2="16" y2="6"></line><line x1="8" y1="2" x2="8" y2="6"></line><line x1="3" y1="10" x2="21" y2="10"></line></svg>
+                        <span>Demo Classes</span>
+                        <span class="sidebar-badge" id="badgeDemoRequests" style="display:none;">0</span>
+                    </a>
+                </li>
+                <li>
+                    <a href="javascript:void(0)" class="sidebar-link" data-tab="admissions">
+                        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M16 21v-2a4 4 0 0 0-4-4H5a4 4 0 0 0-4 4v2"></path><circle cx="8.5" cy="7" r="4"></circle><polyline points="17 11 19 13 23 9"></polyline></svg>
+                        <span>Admissions</span>
+                        <span class="sidebar-badge" id="badgeAdmissions" style="display:none;">0</span>
+                    </a>
+                </li>
+
+                <li class="menu-heading">Institute Content</li>
+                <li>
+                    <a href="javascript:void(0)" class="sidebar-link" data-tab="toppers">
+                        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="12" cy="8" r="7"></circle><polyline points="8.21 13.89 7 23 12 20 17 23 15.79 13.88"></polyline></svg>
+                        <span>Achievers &amp; Posters</span>
+                    </a>
+                </li>
+                <li>
+                    <a href="javascript:void(0)" class="sidebar-link" data-tab="reviews">
+                        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M21 15a2 2 0 0 1-2 2H7l-4 4V5a2 2 0 0 1 2-2h14a2 2 0 0 1 2 2z"></path></svg>
+                        <span>Reviews Moderation</span>
+                    </a>
+                </li>
+                <li>
+                    <a href="javascript:void(0)" class="sidebar-link" data-tab="subjects">
+                        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M4 19.5A2.5 2.5 0 0 1 6.5 17H20"></path><path d="M6.5 2H20v20H6.5A2.5 2.5 0 0 1 4 19.5v-15A2.5 2.5 0 0 1 6.5 2z"></path></svg>
+                        <span>Manage Subjects</span>
+                    </a>
+                </li>
+                <li>
+                    <a href="javascript:void(0)" class="sidebar-link" data-tab="faculties">
+                        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M17 21v-2a4 4 0 0 0-4-4H5a4 4 0 0 0-4 4v2"></path><circle cx="9" cy="7" r="4"></circle><path d="M23 21v-2a4 4 0 0 0-3-3.87"></path><path d="M16 3.13a4 4 0 0 1 0 7.75"></path></svg>
+                        <span>Manage Faculty</span>
+                    </a>
+                </li>
+                <li>
+                    <a href="javascript:void(0)" class="sidebar-link" data-tab="content">
+                        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M11 4H4a2 2 0 0 0-2 2v14a2 2 0 0 0 2 2h14a2 2 0 0 0 2-2v-7"></path><path d="M18.5 2.5a2.121 2.121 0 0 1 3 3L12 15l-4 1 1-4 9.5-9.5z"></path></svg>
+                        <span>Website Content</span>
+                    </a>
+                </li>
+
+                <li class="menu-heading">Administration</li>
+                <li>
+                    <a href="javascript:void(0)" class="sidebar-link" data-tab="settings">
+                        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><rect x="3" y="11" width="18" height="11" rx="2" ry="2"></rect><path d="M7 11V7a5 5 0 0 1 10 0v4"></path></svg>
+                        <span>Password &amp; Security</span>
+                    </a>
+                </li>
+            </ul>
+
+            <div class="sidebar-footer">
+                <button class="btn btn-outline" style="width:100%; font-size:0.85rem;" id="adminLogoutBtn">
+                    <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M9 21H5a2 2 0 0 1-2-2V5a2 2 0 0 1 2-2h4"></path><polyline points="16 17 21 12 16 7"></polyline><line x1="21" y1="12" x2="9" y2="12"></line></svg>
+                    Logout
+                </button>
+            </div>
+        </aside>
+
+        <!-- MAIN VIEW CONTAINER -->
+        <main class="admin-main">
+            
+            <!-- Top Header -->
+            <header class="admin-header">
+                <div class="admin-header-left">
+                    <button class="mobile-sidebar-toggle" id="mobileSidebarToggle" aria-label="Toggle menu">
+                        <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><line x1="3" y1="12" x2="21" y2="12"></line><line x1="3" y1="6" x2="21" y2="6"></line><line x1="3" y1="18" x2="21" y2="18"></line></svg>
+                    </button>
+                    <h1 class="admin-page-title" id="adminPageTitle">Dashboard Overview</h1>
+                </div>
+                <div class="admin-header-actions">
+                    <a href="index.html" target="_blank" class="live-site-btn">
+                        <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M18 13v6a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2V8a2 2 0 0 1 2-2h6"></path><polyline points="15 3 21 3 21 9"></polyline><line x1="10" y1="14" x2="21" y2="3"></line></svg>
+                        View Live Website
+                    </a>
+                </div>
+            </header>
+
+            <div class="admin-content">
+                
+                <!-- TAB 1: OVERVIEW -->
+                <div class="tab-pane active" id="tab-overview">
+                    <div class="stats-grid">
+                        <div class="stat-card">
+                            <div class="stat-info">
+                                <span class="stat-label">Demo Requests</span>
+                                <span class="stat-number" id="statDemoCount">0</span>
+                                <span class="stat-subtext" id="statDemoSub">0 uncontacted</span>
+                            </div>
+                            <div class="stat-icon-box stat-icon-blue">
+                                <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><rect x="3" y="4" width="18" height="18" rx="2" ry="2"></rect><line x1="16" y1="2" x2="16" y2="6"></line><line x1="8" y1="2" x2="8" y2="6"></line><line x1="3" y1="10" x2="21" y2="10"></line></svg>
+                            </div>
+                        </div>
+
+                        <div class="stat-card">
+                            <div class="stat-info">
+                                <span class="stat-label">Admissions</span>
+                                <span class="stat-number" id="statAdmissionCount">0</span>
+                                <span class="stat-subtext" id="statAdmissionSub">0 applications</span>
+                            </div>
+                            <div class="stat-icon-box stat-icon-emerald">
+                                <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M16 21v-2a4 4 0 0 0-4-4H5a4 4 0 0 0-4 4v2"></path><circle cx="8.5" cy="7" r="4"></circle><polyline points="17 11 19 13 23 9"></polyline></svg>
+                            </div>
+                        </div>
+
+                        <div class="stat-card">
+                            <div class="stat-info">
+                                <span class="stat-label">Result Posters</span>
+                                <span class="stat-number" id="statBannerCount">2</span>
+                                <span class="stat-subtext" id="statBannerSub">2 active banners</span>
+                            </div>
+                            <div class="stat-icon-box stat-icon-purple">
+                                <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="12" cy="8" r="7"></circle><polyline points="8.21 13.89 7 23 12 20 17 23 15.79 13.88"></polyline></svg>
+                            </div>
+                        </div>
+
+                        <div class="stat-card">
+                            <div class="stat-info">
+                                <span class="stat-label">Total Reviews</span>
+                                <span class="stat-number" id="statReviewCount">0</span>
+                                <span class="stat-subtext" id="statReviewSub">0 published</span>
+                            </div>
+                            <div class="stat-icon-box stat-icon-amber">
+                                <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M21 15a2 2 0 0 1-2 2H7l-4 4V5a2 2 0 0 1 2-2h14a2 2 0 0 1 2 2z"></path></svg>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="table-panel">
+                        <div class="table-toolbar">
+                            <h3 style="font-size:1.1rem; font-weight:600;">Recent Demo Class Submissions</h3>
+                            <button class="btn btn-outline btn-sm" onclick="switchAdminTab('demoRequests')">View All &rarr;</button>
+                        </div>
+                        <div id="recentActivityList"></div>
+                    </div>
+                </div>
+
+                <!-- TAB 2: DEMO REQUESTS -->
+                <div class="tab-pane" id="tab-demoRequests">
+                    <div class="table-panel">
+                        <div class="table-toolbar">
+                            <div class="table-search-box">
+                                <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="11" cy="11" r="8"></circle><line x1="21" y1="21" x2="16.65" y2="16.65"></line></svg>
+                                <input type="text" id="demoSearchInput" placeholder="Search by student, parent, phone...">
+                            </div>
+                            <div class="table-actions-group">
+                                <select id="demoStatusFilter" class="form-control" style="width: auto; padding: 7px 12px; font-size: 0.88rem;">
+                                    <option value="all">All Statuses</option>
+                                    <option value="New">New Only</option>
+                                    <option value="Contacted">Contacted Only</option>
+                                </select>
+                            </div>
+                        </div>
+
+                        <div class="table-responsive">
+                            <table class="admin-table">
+                                <thead>
+                                    <tr>
+                                        <th>Student</th>
+                                        <th>Class</th>
+                                        <th>Subject</th>
+                                        <th>Parent Contact</th>
+                                        <th>Status</th>
+                                        <th>Submitted</th>
+                                        <th>Action</th>
+                                    </tr>
+                                </thead>
+                                <tbody id="demoRequestsTableBody"></tbody>
+                            </table>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- TAB 3: ADMISSIONS -->
+                <div class="tab-pane" id="tab-admissions">
+                    <div class="table-panel">
+                        <div class="table-toolbar">
+                            <div class="table-search-box">
+                                <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="11" cy="11" r="8"></circle><line x1="21" y1="21" x2="16.65" y2="16.65"></line></svg>
+                                <input type="text" id="admissionSearchInput" placeholder="Search by student, parent...">
+                            </div>
+                            <div class="table-actions-group">
+                                <select id="admissionStatusFilter" class="form-control" style="width: auto; padding: 7px 12px; font-size: 0.88rem;">
+                                    <option value="all">All Applications</option>
+                                    <option value="New">New</option>
+                                    <option value="Under Review">Under Review</option>
+                                    <option value="Enrolled">Enrolled</option>
+                                    <option value="Rejected">Rejected</option>
+                                </select>
+                            </div>
+                        </div>
+
+                        <div class="table-responsive">
+                            <table class="admin-table">
+                                <thead>
+                                    <tr>
+                                        <th>Student</th>
+                                        <th>Class</th>
+                                        <th>Subjects</th>
+                                        <th>Parent Contact</th>
+                                        <th>Status</th>
+                                        <th>Date</th>
+                                        <th>Action</th>
+                                    </tr>
+                                </thead>
+                                <tbody id="admissionsTableBody"></tbody>
+                            </table>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- TAB 4: ACHIEVERS & RESULT POSTERS -->
+                <div class="tab-pane" id="tab-toppers">
+                    <div style="display:flex; justify-content:space-between; align-items:center; flex-wrap:wrap; gap:16px; margin-bottom:24px;">
+                        <div>
+                            <h2 style="font-size:1.4rem;">Result Posters &amp; Achievers Management</h2>
+                            <p style="font-size:0.88rem; color:var(--admin-text-muted);">Manage official board result posters (like 2026 &amp; 2025) and individual student toppers.</p>
+                        </div>
+                        <div style="display:flex; gap:12px;">
+                            <button class="btn btn-primary" onclick="openAddBannerModal()">
+                                <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M21 15v4a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2v-4"></path><polyline points="17 8 12 3 7 8"></polyline><line x1="12" y1="3" x2="12" y2="15"></line></svg>
+                                + Add Result Poster Image
+                            </button>
+                            <button class="btn btn-outline" onclick="openAddTopperModal()">
+                                + Add Individual Topper
+                            </button>
+                        </div>
+                    </div>
+
+                    <!-- 1. Result Posters Section -->
+                    <div style="margin-bottom:36px;">
+                        <h3 style="font-size:1.15rem; font-weight:700; margin-bottom:16px; color:var(--text-main);">Official Result Banner Posters</h3>
+                        <div class="achievement-banners-grid" id="adminBannersGrid"></div>
+                    </div>
+
+                    <!-- 2. Individual Toppers Section -->
+                    <div>
+                        <h3 style="font-size:1.15rem; font-weight:700; margin-bottom:16px; color:var(--text-main);">Individual Student Topper Cards</h3>
+                        <div class="toppers-grid" id="adminToppersGrid"></div>
+                    </div>
+                </div>
+
+                <!-- TAB 5: REVIEWS MODERATION & DELETION -->
+                <div class="tab-pane" id="tab-reviews">
+                    <div style="display:flex; justify-content:space-between; align-items:center; flex-wrap:wrap; gap:16px; margin-bottom:24px;">
+                        <div>
+                            <h2 style="font-size:1.4rem;">Reviews &amp; Testimonials Moderation</h2>
+                            <p style="font-size:0.88rem; color:var(--admin-text-muted);">Moderate, filter, hide, or permanently delete student and parent reviews. Inappropriate or bad reviews can be removed instantly.</p>
+                        </div>
+                    </div>
+
+                    <div class="table-panel">
+                        <div class="table-toolbar">
+                            <div class="table-search-box">
+                                <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="11" cy="11" r="8"></circle><line x1="21" y1="21" x2="16.65" y2="16.65"></line></svg>
+                                <input type="text" id="reviewSearchInput" placeholder="Search reviews by name, feedback text...">
+                            </div>
+                            <div class="table-actions-group">
+                                <select id="reviewRatingFilter" class="form-control" style="width: auto; padding: 7px 12px; font-size: 0.88rem;">
+                                    <option value="all">All Star Ratings (1 - 5 ★)</option>
+                                    <option value="5">5 Stars Only</option>
+                                    <option value="4">4 Stars Only</option>
+                                    <option value="3">3 Stars Only</option>
+                                    <option value="2">2 Stars (Low Rating)</option>
+                                    <option value="1">1 Star (Low Rating)</option>
+                                </select>
+                                <select id="reviewStatusFilter" class="form-control" style="width: auto; padding: 7px 12px; font-size: 0.88rem;">
+                                    <option value="all">All Statuses</option>
+                                    <option value="approved">Approved (Visible)</option>
+                                    <option value="hidden">Hidden</option>
+                                </select>
+                            </div>
+                        </div>
+
+                        <div class="table-responsive">
+                            <table class="admin-table">
+                                <thead>
+                                    <tr>
+                                        <th>Reviewer</th>
+                                        <th>Rating</th>
+                                        <th>Review Feedback</th>
+                                        <th>Public Visibility</th>
+                                        <th>Submitted</th>
+                                        <th>Manage Actions</th>
+                                    </tr>
+                                </thead>
+                                <tbody id="reviewsTableBody"></tbody>
+                            </table>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- TAB: SUBJECTS MANAGEMENT -->
+                <div class="tab-pane" id="tab-subjects">
+                    <div style="display:flex; justify-content:space-between; align-items:center; flex-wrap:wrap; gap:16px; margin-bottom:24px;">
+                        <div>
+                            <h2 style="font-size:1.4rem;">Curriculum &amp; Subjects Management</h2>
+                            <p style="font-size:0.88rem; color:var(--admin-text-muted);">Add new subjects, set core or elective status, target classes (7 to 10), descriptions, and syllabus highlights.</p>
+                        </div>
+                        <button class="btn btn-primary" onclick="openAddSubjectModal()">
+                            <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><line x1="12" y1="5" x2="12" y2="19"></line><line x1="5" y1="12" x2="19" y2="12"></line></svg>
+                            + Add New Subject
+                        </button>
+                    </div>
+
+                    <div class="table-panel">
+                        <div class="table-toolbar">
+                            <div class="table-search-box">
+                                <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="11" cy="11" r="8"></circle><line x1="21" y1="21" x2="16.65" y2="16.65"></line></svg>
+                                <input type="text" id="subjectSearchInput" placeholder="Search subjects by name, category, or class...">
+                            </div>
+                            <div class="table-actions-group">
+                                <select id="subjectCategoryFilter" class="form-control" style="width: auto; padding: 7px 12px; font-size: 0.88rem;">
+                                    <option value="all">All Categories</option>
+                                    <option value="core">Core Subjects</option>
+                                    <option value="elective">Class 9 &amp; 10 Electives</option>
+                                </select>
+                            </div>
+                        </div>
+
+                        <div class="table-responsive">
+                            <table class="admin-table">
+                                <thead>
+                                    <tr>
+                                        <th>Subject</th>
+                                        <th>Type / Category</th>
+                                        <th>Target Classes</th>
+                                        <th>Tagline / Overview</th>
+                                        <th>Status</th>
+                                        <th>Actions</th>
+                                    </tr>
+                                </thead>
+                                <tbody id="subjectsTableBody"></tbody>
+                            </table>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- TAB: FACULTY MANAGEMENT -->
+                <div class="tab-pane" id="tab-faculties">
+                    <div style="display:flex; justify-content:space-between; align-items:center; flex-wrap:wrap; gap:16px; margin-bottom:24px;">
+                        <div>
+                            <h2 style="font-size:1.4rem;">Faculty &amp; Teachers Management</h2>
+                            <p style="font-size:0.88rem; color:var(--admin-text-muted);">Add, edit, and showcase your expert subject educators, qualifications, and photos on the website.</p>
+                        </div>
+                        <button class="btn btn-primary" onclick="openAddFacultyModal()">
+                            <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><line x1="12" y1="5" x2="12" y2="19"></line><line x1="5" y1="12" x2="19" y2="12"></line></svg>
+                            + Add New Faculty
+                        </button>
+                    </div>
+
+                    <div class="table-panel">
+                        <div class="table-toolbar">
+                            <div class="table-search-box">
+                                <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="11" cy="11" r="8"></circle><line x1="21" y1="21" x2="16.65" y2="16.65"></line></svg>
+                                <input type="text" id="facultySearchInput" placeholder="Search faculty by name, subject, or qualification...">
+                            </div>
+                        </div>
+
+                        <div class="table-responsive">
+                            <table class="admin-table">
+                                <thead>
+                                    <tr>
+                                        <th>Teacher</th>
+                                        <th>Subject(s)</th>
+                                        <th>Graduation / Qualification</th>
+                                        <th>Teaching Bio / Tagline</th>
+                                        <th>Status</th>
+                                        <th>Actions</th>
+                                    </tr>
+                                </thead>
+                                <tbody id="facultiesTableBody"></tbody>
+                            </table>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- TAB 6: WEBSITE CONTENT EDITOR -->
+                <div class="tab-pane" id="tab-content">
+                    <form id="siteContentForm">
+                        <div class="editor-card">
+                            <div class="editor-card-header">
+                                <h3 class="editor-card-title">Homepage Hero &amp; Philosophy</h3>
+                            </div>
+                            <div class="form-group">
+                                <label class="form-label" for="editHeroTitle">Hero Main Headline</label>
+                                <input type="text" id="editHeroTitle" class="form-control">
+                            </div>
+                            <div class="form-group">
+                                <label class="form-label" for="editHeroSubtitle">Hero Subtitle</label>
+                                <textarea id="editHeroSubtitle" rows="2" class="form-control"></textarea>
+                            </div>
+                            <div class="form-group">
+                                <label class="form-label" for="editMotQuote">Motivational Quote</label>
+                                <input type="text" id="editMotQuote" class="form-control">
+                            </div>
+                            <div class="form-group">
+                                <label class="form-label" for="editMotSub">Motivational Subtext</label>
+                                <input type="text" id="editMotSub" class="form-control">
+                            </div>
+                        </div>
+
+                        <div class="editor-card">
+                            <div class="editor-card-header">
+                                <h3 class="editor-card-title">Introduction Section</h3>
+                            </div>
+                            <div class="form-group">
+                                <label class="form-label" for="editIntroP1">Paragraph 1</label>
+                                <textarea id="editIntroP1" rows="3" class="form-control"></textarea>
+                            </div>
+                            <div class="form-group">
+                                <label class="form-label" for="editIntroP2">Paragraph 2</label>
+                                <textarea id="editIntroP2" rows="3" class="form-control"></textarea>
+                            </div>
+                        </div>
+
+                        <div class="editor-card">
+                            <div class="editor-card-header">
+                                <h3 class="editor-card-title">Call To Action (CTA)</h3>
+                            </div>
+                            <div class="form-group">
+                                <label class="form-label" for="editCtaHead">CTA Heading</label>
+                                <input type="text" id="editCtaHead" class="form-control">
+                            </div>
+                            <div class="form-group">
+                                <label class="form-label" for="editCtaSub">CTA Subtitle</label>
+                                <textarea id="editCtaSub" rows="2" class="form-control"></textarea>
+                            </div>
+                        </div>
+
+                        <div class="editor-card">
+                            <div class="editor-card-header">
+                                <h3 class="editor-card-title">Contact &amp; Physical Address</h3>
+                            </div>
+                            <div style="display:grid; grid-template-columns:1fr 1fr; gap:16px;">
+                                <div class="form-group">
+                                    <label class="form-label" for="editPhone">Calling Phone Number</label>
+                                    <input type="text" id="editPhone" class="form-control">
+                                </div>
+                                <div class="form-group">
+                                    <label class="form-label" for="editWhatsapp">WhatsApp Number</label>
+                                    <input type="text" id="editWhatsapp" class="form-control">
+                                </div>
+                            </div>
+                            <div class="form-group">
+                                <label class="form-label" for="editAddress">Institute Physical Address</label>
+                                <input type="text" id="editAddress" class="form-control">
+                            </div>
+                        </div>
+
+                        <div style="display:flex; justify-content:space-between; align-items:center; margin-bottom:40px;">
+                            <button type="button" class="btn btn-outline" id="resetContentBtn">Reset to Institute Defaults</button>
+                            <button type="submit" class="btn btn-primary btn-lg">Save Content Changes</button>
+                        </div>
+                    </form>
+                </div>
+
+                <!-- TAB 7: PASSWORD & SECURITY -->
+                <div class="tab-pane" id="tab-settings">
+                    <div style="display:grid; grid-template-columns: repeat(auto-fit, minmax(320px, 1fr)); gap:24px;">
+                        
+                        <!-- CARD 1: PRIMARY MASTER PASSWORD -->
+                        <div class="editor-card">
+                            <div class="editor-card-header">
+                                <h3 class="editor-card-title" style="display:flex; align-items:center; gap:8px;">
+                                    <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="#2563EB" stroke-width="2"><rect x="3" y="11" width="18" height="11" rx="2" ry="2"></rect><path d="M7 11V7a5 5 0 0 1 10 0v4"></path></svg>
+                                    Primary Master Password
+                                </h3>
+                                <p style="font-size:0.84rem; color:var(--admin-text-muted); margin-top:4px;">
+                                    Update the primary account master password required to access the admin dashboard.
+                                </p>
+                            </div>
+                            <form id="changePasswordForm">
+                                <div class="form-group">
+                                    <label class="form-label" for="currentPassword">Current Master Password <span class="required">*</span></label>
+                                    <input type="password" id="currentPassword" name="currentPassword" class="form-control" required>
+                                </div>
+                                <div class="form-group">
+                                    <label class="form-label" for="newPassword">New Master Password <span class="required">*</span></label>
+                                    <input type="password" id="newPassword" name="newPassword" class="form-control" required minlength="6">
+                                </div>
+                                <div class="form-group">
+                                    <label class="form-label" for="confirmNewPassword">Confirm New Master Password <span class="required">*</span></label>
+                                    <input type="password" id="confirmNewPassword" name="confirmNewPassword" class="form-control" required minlength="6">
+                                </div>
+                                <button type="submit" class="btn btn-primary" style="width:100%;">Update Master Password</button>
+                            </form>
+                        </div>
+
+                        <!-- CARD 2: SECONDARY SECURITY PASSWORD / PIN -->
+                        <div class="editor-card">
+                            <div class="editor-card-header">
+                                <h3 class="editor-card-title" style="display:flex; align-items:center; gap:8px;">
+                                    <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="#059669" stroke-width="2"><path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10z"></path></svg>
+                                    Secondary Security Password (PIN)
+                                </h3>
+                                <p style="font-size:0.84rem; color:var(--admin-text-muted); margin-top:4px;">
+                                    Update the 2nd layer security PIN / password required at login.
+                                </p>
+                            </div>
+                            <form id="changeSecondaryPasswordForm">
+                                <div class="form-group">
+                                    <label class="form-label" for="currentSecondaryPassword">Current Security PIN <span class="required">*</span></label>
+                                    <input type="password" id="currentSecondaryPassword" name="currentSecondaryPassword" class="form-control" placeholder="••••••••" required>
+                                </div>
+                                <div class="form-group">
+                                    <label class="form-label" for="newSecondaryPassword">New Security PIN / Password <span class="required">*</span></label>
+                                    <input type="password" id="newSecondaryPassword" name="newSecondaryPassword" class="form-control" placeholder="Enter new security PIN (min 4 characters)" required minlength="4">
+                                </div>
+                                <div class="form-group">
+                                    <label class="form-label" for="confirmNewSecondaryPassword">Confirm New Security PIN <span class="required">*</span></label>
+                                    <input type="password" id="confirmNewSecondaryPassword" name="confirmNewSecondaryPassword" class="form-control" placeholder="Re-enter new security PIN" required minlength="4">
+                                </div>
+                                <button type="submit" class="btn btn-primary" style="width:100%; background:#059669; border-color:#059669;">Update Security PIN</button>
+                            </form>
+                        </div>
+
+                    </div>
+                </div>
+
+            </div>
+        </main>
+    </div>
+
+    <!-- MODAL 1: VIEW FULL DETAILS -->
+    <div class="modal-overlay" id="adminViewModal" role="dialog" aria-modal="true">
+        <div class="modal-dialog">
+            <div class="modal-header">
+                <h3 class="modal-title" id="adminViewModalTitle">Application Details</h3>
+                <button class="modal-close-btn" onclick="closeModal('adminViewModal')" aria-label="Close dialog">
+                    <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><line x1="18" y1="6" x2="6" y2="18"></line><line x1="6" y1="6" x2="18" y2="18"></line></svg>
+                </button>
+            </div>
+            <div class="modal-body" id="adminViewModalBody"></div>
+        </div>
+    </div>
+
+    <!-- MODAL 2: ADD / EDIT BANNER -->
+    <div class="modal-overlay" id="bannerModal" role="dialog" aria-modal="true">
+        <div class="modal-dialog" style="max-width: 600px;">
+            <div class="modal-header">
+                <h3 class="modal-title" id="bannerModalTitle">Add Result Poster Banner</h3>
+                <button class="modal-close-btn" onclick="closeModal('bannerModal')" aria-label="Close dialog">
+                    <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><line x1="18" y1="6" x2="6" y2="18"></line><line x1="6" y1="6" x2="18" y2="18"></line></svg>
+                </button>
+            </div>
+            <div class="modal-body">
+                <form id="bannerForm">
+                    <input type="hidden" id="bannerFormId" value="">
+                    
+                    <div class="form-group">
+                        <label class="form-label" for="bannerTitle">Poster / Banner Title <span class="required">*</span></label>
+                        <input type="text" id="bannerTitle" name="title" class="form-control" placeholder="e.g. CBSE Class X Board Exam Result - 2027" required>
+                    </div>
+
+                    <div style="display:grid; grid-template-columns:1fr 1fr; gap:16px;">
+                        <div class="form-group">
+                            <label class="form-label" for="bannerBatchYear">Batch / Exam Year <span class="required">*</span></label>
+                            <input type="text" id="bannerBatchYear" name="batchYear" class="form-control" placeholder="e.g. 2026" required>
+                        </div>
+                        <div class="form-group">
+                            <label class="form-label" for="bannerSubtitle">Highlights Subtitle</label>
+                            <input type="text" id="bannerSubtitle" name="subtitle" class="form-control" placeholder="e.g. 100% Success Rate">
+                        </div>
+                    </div>
+
+                    <div class="form-group">
+                        <label class="form-label">Upload Poster Image <span class="required">*</span></label>
+                        <div style="display:flex; flex-direction:column; gap:10px;">
+                            <input type="file" id="bannerFileInput" accept="image/*" class="form-control" style="padding:8px;">
+                            <span style="font-size:0.8rem; color:var(--text-subtle); text-align:center;">— OR ENTER IMAGE URL —</span>
+                            <input type="text" id="bannerImageUrl" name="imageUrl" class="form-control" placeholder="assets/images/your-poster.jpg or https://...">
+                        </div>
+                        <div id="bannerImagePreviewBox" style="margin-top:12px; display:none; text-align:center; background:#0F172A; padding:10px; border-radius:8px;">
+                            <img id="bannerImagePreview" src="" style="max-height:180px; max-width:100%; object-fit:contain; border-radius:4px;">
+                        </div>
+                    </div>
+
+                    <div class="form-group">
+                        <label class="form-label" for="bannerDescription">Brief Description / Notes</label>
+                        <textarea id="bannerDescription" name="description" rows="2" class="form-control" placeholder="e.g. Congratulations to all students for their exceptional performance."></textarea>
+                    </div>
+
+                    <div style="margin-top:24px;">
+                        <button type="submit" class="btn btn-primary" style="width:100%; padding:13px;">Save Result Poster</button>
+                    </div>
+                </form>
+            </div>
+        </div>
+    </div>
+
+    <!-- MODAL 3: ADD / EDIT TOPPER -->
+    <div class="modal-overlay" id="topperModal" role="dialog" aria-modal="true">
+        <div class="modal-dialog">
+            <div class="modal-header">
+                <h3 class="modal-title" id="topperModalTitle">Add Shine Achiever</h3>
+                <button class="modal-close-btn" onclick="closeModal('topperModal')" aria-label="Close dialog">
+                    <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><line x1="18" y1="6" x2="6" y2="18"></line><line x1="6" y1="6" x2="18" y2="18"></line></svg>
+                </button>
+            </div>
+            <div class="modal-body">
+                <form id="topperForm">
+                    <input type="hidden" id="topperFormId" value="">
+                    <div class="form-group">
+                        <label class="form-label" for="topName">Student Name <span class="required">*</span></label>
+                        <input type="text" id="topName" name="studentName" class="form-control" placeholder="e.g. Jignashu N. Kashyap" required>
+                    </div>
+                    <div class="form-group">
+                        <label class="form-label" for="topClass">Class / Batch <span class="required">*</span></label>
+                        <input type="text" id="topClass" name="studentClass" class="form-control" placeholder="e.g. CBSE Class 10 (2026)" required>
+                    </div>
+                    <div class="form-group">
+                        <label class="form-label" for="topPercentage">Percentage / Score <span class="required">*</span></label>
+                        <input type="text" id="topPercentage" name="percentage" class="form-control" placeholder="e.g. 96.60" required>
+                    </div>
+                    <div class="form-group">
+                        <label class="form-label" for="topSubject">Subject / Achievement Distinction <span class="required">*</span></label>
+                        <input type="text" id="topSubject" name="subjectAchievement" class="form-control" placeholder="e.g. Top Scorer in Mathematics &amp; Science" required>
+                    </div>
+                    <div class="form-group">
+                        <label class="form-label" for="topReview">Student Testimonial / Quote</label>
+                        <textarea id="topReview" name="review" rows="2" class="form-control" placeholder="e.g. The conceptual clarity and personal guidance helped me excel in boards."></textarea>
+                    </div>
+                    <div class="form-group">
+                        <label class="form-label">Student Photo (Optional)</label>
+                        <input type="file" id="topperFileInput" accept="image/*" class="form-control" style="padding:8px; margin-bottom:6px;">
+                        <input type="text" id="topPhoto" name="photoUrl" class="form-control" placeholder="Or enter photo URL (https://...)">
+                    </div>
+                    <div style="margin-top:24px;">
+                        <button type="submit" class="btn btn-primary" style="width:100%; padding:13px;">Save Achiever Card</button>
+                    </div>
+                </form>
+            </div>
+        </div>
+    </div>
+
+    <!-- MODAL 4: ADD / EDIT SUBJECT -->
+    <div class="modal-overlay" id="subjectModal" role="dialog" aria-modal="true">
+        <div class="modal-dialog" style="max-width: 600px;">
+            <div class="modal-header">
+                <h3 class="modal-title" id="subjectModalTitle">Add New Subject</h3>
+                <button class="modal-close-btn" onclick="closeAdminModal('subjectModal')" aria-label="Close dialog">
+                    <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><line x1="18" y1="6" x2="6" y2="18"></line><line x1="6" y1="6" x2="18" y2="18"></line></svg>
+                </button>
+            </div>
+            <div class="modal-body">
+                <form id="subjectForm" novalidate>
+                    <input type="hidden" id="subjectFormId" value="">
+
+                    <div class="form-group">
+                        <label class="form-label" for="subName">Subject Name <span class="required">*</span></label>
+                        <input type="text" id="subName" name="name" class="form-control" placeholder="e.g. Advanced Chemistry, Computer Applications" required>
+                    </div>
+
+                    <div style="display:grid; grid-template-columns:1fr 1fr; gap:16px;">
+                        <div class="form-group">
+                            <label class="form-label" for="subCategory">Subject Category <span class="required">*</span></label>
+                            <select id="subCategory" name="category" class="form-control" required>
+                                <option value="core">Core Subject (All Classes)</option>
+                                <option value="elective">Class 9 &amp; 10 Special Elective</option>
+                                <option value="foundation">Special Foundation Course</option>
+                            </select>
+                        </div>
+                        <div class="form-group">
+                            <label class="form-label" for="subClasses">Applicable Classes <span class="required">*</span></label>
+                            <input type="text" id="subClasses" name="target_classes" class="form-control" placeholder="e.g. Classes 7, 8, 9 &amp; 10 or Class 9 &amp; 10" required>
+                        </div>
+                    </div>
+
+                    <div class="form-group">
+                        <label class="form-label" for="subTagline">Tagline / Short Overview <span class="required">*</span></label>
+                        <input type="text" id="subTagline" name="tagline" class="form-control" placeholder="e.g. In-depth chemical equations, periodic table, reactions" required>
+                    </div>
+
+                    <div class="form-group">
+                        <label class="form-label" for="subTopics">Key Topics / Syllabus Highlights (One topic per line)</label>
+                        <textarea id="subTopics" name="topics" rows="4" class="form-control" placeholder="Chemical Reactions &amp; Equations&#10;Acids, Bases &amp; Salts&#10;Carbon Compounds&#10;Board Problem Solving"></textarea>
+                    </div>
+
+                    <div style="display:grid; grid-template-columns:1fr 1fr; gap:16px;">
+                        <div class="form-group">
+                            <label class="form-label" for="subAccentColor">Theme Accent Color</label>
+                            <select id="subAccentColor" name="accent_color" class="form-control">
+                                <option value="#2563EB">Royal Blue</option>
+                                <option value="#10B981">Emerald Green</option>
+                                <option value="#6366F1">Indigo</option>
+                                <option value="#D97706">Amber Gold</option>
+                                <option value="#8B5CF6">Purple</option>
+                            </select>
+                        </div>
+                        <div class="form-group">
+                            <label class="form-label" for="subStatus">Visibility Status</label>
+                            <select id="subStatus" name="status" class="form-control">
+                                <option value="active">Active (Visible on Website)</option>
+                                <option value="hidden">Hidden (Draft)</option>
+                            </select>
+                        </div>
+                    </div>
+
+                    <div style="margin-top: 24px;">
+                        <button type="submit" class="btn btn-primary" style="width: 100%; padding: 13px;">Save Subject</button>
+                    </div>
+                </form>
+            </div>
+        </div>
+    </div>
+
+    <!-- MODAL 5: ADD / EDIT FACULTY -->
+    <div class="modal-overlay" id="facultyModal" role="dialog" aria-modal="true">
+        <div class="modal-dialog" style="max-width: 600px;">
+            <div class="modal-header">
+                <h3 class="modal-title" id="facultyModalTitle">Add Faculty Member</h3>
+                <button class="modal-close-btn" onclick="closeAdminModal('facultyModal')" aria-label="Close dialog">
+                    <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><line x1="18" y1="6" x2="6" y2="18"></line><line x1="6" y1="6" x2="18" y2="18"></line></svg>
+                </button>
+            </div>
+            <div class="modal-body">
+                <form id="facultyForm" novalidate>
+                    <input type="hidden" id="facultyFormId" value="">
+
+                    <div class="form-group">
+                        <label class="form-label" for="facName">Teacher Full Name <span class="required">*</span></label>
+                        <input type="text" id="facName" name="name" class="form-control" placeholder="e.g. Rahul Sharma" required>
+                    </div>
+
+                    <div class="form-group">
+                        <label class="form-label" for="facSubject">Subject(s) / Teaching Specialization <span class="required">*</span></label>
+                        <input type="text" id="facSubject" name="subject" class="form-control" placeholder="e.g. Mathematics &amp; Science (Classes 7–10), Chemistry Specialist" required>
+                    </div>
+
+                    <div class="form-group">
+                        <label class="form-label" for="facGraduation">Graduation / Educational Qualification <span style="font-size:0.8rem; color:var(--text-subtle); font-weight:normal;">[Optional]</span></label>
+                        <input type="text" id="facGraduation" name="graduation" class="form-control" placeholder="e.g. B.Sc (Mathematics), B.Ed / M.Sc Chemistry / M.A. English">
+                    </div>
+
+                    <div class="form-group">
+                        <label class="form-label">Teacher Photo <span style="font-size:0.8rem; color:var(--text-subtle); font-weight:normal;">[Optional]</span></label>
+                        <div style="display:flex; flex-direction:column; gap:10px;">
+                            <input type="file" id="facultyFileInput" accept="image/*" class="form-control" style="padding:8px;">
+                            <span style="font-size:0.8rem; color:var(--text-subtle); text-align:center;">— OR ENTER PHOTO URL —</span>
+                            <input type="text" id="facPhotoUrl" name="photoUrl" class="form-control" placeholder="assets/images/... or https://...">
+                        </div>
+
+                        <!-- PHOTO FRAMING & SIZE OPTIONS -->
+                        <div style="margin-top:14px; background:#F8FAFC; border:1px solid #E2E8F0; border-radius:10px; padding:12px 14px;">
+                            <label class="form-label" style="font-size:0.88rem; margin-bottom:8px; display:flex; align-items:center; gap:6px;">
+                                <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="#2563EB" stroke-width="2"><rect x="3" y="3" width="18" height="18" rx="2" ry="2"></rect><circle cx="8.5" cy="8.5" r="1.5"></circle><polyline points="21 15 16 10 5 21"></polyline></svg>
+                                <strong>Photo Framing (Choose Photo Size &amp; Shape)</strong>
+                            </label>
+                            <div style="display:grid; grid-template-columns: 1fr 1fr; gap:10px;">
+                                <div>
+                                    <label style="font-size:0.78rem; font-weight:600; color:var(--admin-text-muted); display:block; margin-bottom:4px;">Frame Size &amp; Shape</label>
+                                    <select id="facFraming" name="framing" class="form-control" style="font-size:0.86rem; padding:8px 10px;">
+                                        <option value="circle-lg">Large Circle (150px) [Recommended]</option>
+                                        <option value="circle-xl">Extra Large Circle (180px)</option>
+                                        <option value="circle-full">Jumbo Circle (200px)</option>
+                                        <option value="portrait-rect">Portrait Rectangle (3:4 Studio)</option>
+                                        <option value="square-rounded">Rounded Squircle (160px)</option>
+                                    </select>
+                                </div>
+                                <div>
+                                    <label style="font-size:0.78rem; font-weight:600; color:var(--admin-text-muted); display:block; margin-bottom:4px;">Photo Focus / Fit</label>
+                                    <select id="facPhotoFit" name="photoFit" class="form-control" style="font-size:0.86rem; padding:8px 10px;">
+                                        <option value="top">Headshot / Face Focus (Top)</option>
+                                        <option value="center">Center Portrait</option>
+                                        <option value="contain">Fit Full Photo (No Crop)</option>
+                                    </select>
+                                </div>
+                            </div>
+                        </div>
+
+                        <!-- LIVE FRAMING PREVIEW -->
+                        <div id="facultyImagePreviewBox" style="margin-top:14px; display:none; text-align:center; background:#F8FAFC; padding:16px; border-radius:12px; border:1.5px dashed #CBD5E1;">
+                            <div id="facultyPreviewFrameWrapper" style="width:140px; height:140px; margin:0 auto 8px; border-radius:50%; padding:3px; background:linear-gradient(135deg, rgba(37,99,235,0.25) 0%, rgba(56,189,248,0.25) 100%); box-shadow:0 4px 14px rgba(37,99,235,0.15); transition:all 0.3s ease;">
+                                <img id="facultyImagePreview" src="" style="width:100%; height:100%; object-fit:cover; object-position:center top; border-radius:50%; display:block; border:2px solid #FFFFFF; background:#FFFFFF; transition:all 0.3s ease;">
+                            </div>
+                            <span id="facultyPreviewFramingLabel" style="font-size:0.78rem; font-weight:600; color:var(--admin-text-muted);">Photo Framing Preview</span>
+                        </div>
+                    </div>
+
+                    <div class="form-group">
+                        <label class="form-label" for="facBio">Teaching Bio / Tagline <span style="font-size:0.8rem; color:var(--text-subtle); font-weight:normal;">[Optional]</span></label>
+                        <textarea id="facBio" name="bio" rows="2" class="form-control" placeholder="e.g. Dedicated to building rock-solid conceptual clarity, patience with every learner, and personal mentorship."></textarea>
+                    </div>
+
+                    <div class="form-group">
+                        <label class="form-label" for="facStatus">Visibility Status</label>
+                        <select id="facStatus" name="status" class="form-control">
+                            <option value="active">Active (Visible on Website)</option>
+                            <option value="hidden">Hidden (Draft)</option>
+                        </select>
+                    </div>
+
+                    <div style="margin-top: 24px;">
+                        <button type="submit" class="btn btn-primary" style="width: 100%; padding: 13px;">Save Faculty Member</button>
+                    </div>
+                </form>
+            </div>
+        </div>
+    </div>
+
+    <!-- Scripts -->
+    <script src="js/config.js"></script>
+    <script src="js/auth.js"></script>
+    <script src="js/db.js"></script>
+    <script src="js/admin.js"></script>
+</body>
+</html>
