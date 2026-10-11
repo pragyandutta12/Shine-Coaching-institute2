@@ -1,0 +1,5 @@
+User-agent: *
+Allow: /
+
+# Sitemaps
+Sitemap: https://shine-coaching-institute2.vercel.app/sitemap.xml
