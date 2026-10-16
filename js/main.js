@@ -130,12 +130,13 @@ function initScrollAnimations() {
         entries.forEach(entry => {
             if (entry.isIntersecting) {
                 entry.target.classList.add("is-visible");
-                observer.unobserve(entry.target);
+            } else {
+                entry.target.classList.remove("is-visible");
             }
         });
     }, {
         threshold: 0.1,
-        rootMargin: "0px 0px -40px 0px"
+        rootMargin: "0px 0px -20px 0px"
     });
 
     reveals.forEach(el => observer.observe(el));
@@ -151,7 +152,7 @@ function initNavigation() {
 
     if (navbar) {
         window.addEventListener("scroll", () => {
-            if (window.scrollY > 20) {
+            if (window.scrollY > 80) {
                 navbar.classList.add("scrolled");
             } else {
                 navbar.classList.remove("scrolled");

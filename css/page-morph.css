@@ -1,0 +1,822 @@
+/* ==========================================================================
+   SHINE COACHING INSTITUTE - CLASSIC & PRESTIGIOUS TRANSFORMER HERO
+   Full-Cover Viewport Canvas, Classic Luxury Aesthetics & Bidirectional 3D Morph
+   ========================================================================== */
+
+/* --------------------------------------------------------------------------
+   1. SEAMLESS HEADER OVERLAY (HERO IMAGE COVERS THE ENTIRE TOP VIEWPORT)
+   -------------------------------------------------------------------------- */
+.site-header-overlay {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    z-index: 100;
+    pointer-events: none;
+    background: linear-gradient(180deg, 
+        rgba(30, 41, 59, 0.62) 0%, 
+        rgba(30, 41, 59, 0.28) 65%, 
+        transparent 100%);
+}
+
+.site-header-overlay > * {
+    pointer-events: auto;
+}
+
+.top-bar {
+    background: transparent !important;
+    border-bottom: 1px solid rgba(255, 255, 255, 0.08) !important;
+    color: #94A3B8 !important;
+    padding: 8px 0;
+}
+
+.top-bar a, 
+.top-bar strong {
+    color: #F8FAFC !important;
+}
+
+.top-bar .top-bar-item svg {
+    color: #38BDF8 !important;
+}
+
+.navbar {
+    position: static !important;
+    background-color: transparent !important;
+    backdrop-filter: none !important;
+    -webkit-backdrop-filter: none !important;
+    border-bottom: none !important;
+    box-shadow: none !important;
+    transition: background-color 0.35s ease, border-color 0.35s ease, box-shadow 0.35s ease !important;
+}
+
+.navbar .brand-name {
+    color: #FFFFFF !important;
+}
+
+.navbar .brand-name span {
+    color: #38BDF8 !important; /* Elegant Sky Azure matching logo & uniforms */
+}
+
+.navbar .brand-sub {
+    color: #94A3B8 !important;
+}
+
+.navbar .nav-link {
+    color: #E2E8F0 !important;
+    font-weight: 500 !important;
+}
+
+.navbar .nav-link:hover,
+.navbar .nav-link.active {
+    color: #38BDF8 !important; /* Refined Sky Azure */
+}
+
+.navbar .nav-link.active::after {
+    background-color: #38BDF8 !important;
+}
+
+/* Classic Sticky Navbar when scrolling past hero fold into body sections */
+.navbar.scrolled {
+    position: fixed !important;
+    top: 0 !important;
+    left: 0 !important;
+    width: 100% !important;
+    z-index: 1000 !important;
+    background-color: rgba(15, 23, 42, 0.94) !important;
+    backdrop-filter: blur(16px) !important;
+    -webkit-backdrop-filter: blur(16px) !important;
+    border-bottom: 1px solid rgba(56, 189, 248, 0.25) !important;
+    box-shadow: 0 10px 30px rgba(0, 0, 0, 0.35) !important;
+    animation: navSlideDown 0.3s cubic-bezier(0.16, 1, 0.3, 1) forwards !important;
+}
+
+@keyframes navSlideDown {
+    from {
+        transform: translateY(-100%);
+    }
+    to {
+        transform: translateY(0);
+    }
+}
+
+/* --------------------------------------------------------------------------
+   2. FULL-COVER HERO SECTION (COVERS ENTIRE FIRST VIEWPORT)
+   -------------------------------------------------------------------------- */
+.hero-section.hero-fullcover-showcase {
+    position: relative;
+    width: 100%;
+    min-height: 100vh;
+    margin: 0;
+    padding: 0;
+    background: #1E293B;
+    overflow: hidden;
+}
+
+/* --------------------------------------------------------------------------
+   3. CLASSIC LUXURY 3D TRANSFORMER CANVAS (FULL VIEWPORT COVERAGE)
+   -------------------------------------------------------------------------- */
+.transformer-fullcover-container {
+    perspective: 1600px;
+    -webkit-perspective: 1600px;
+    width: 100%;
+    min-height: 100vh;
+    height: 100vh;
+    position: relative;
+    overflow: hidden;
+    background: #1E293B;
+    border-radius: 0;
+    border: none;
+    box-shadow: inset 0 0 80px rgba(30, 41, 59, 0.4);
+    box-sizing: border-box;
+}
+
+/* 3D Flipping Canvas */
+.transformer-card-3d {
+    width: 100%;
+    height: 100%;
+    position: absolute;
+    inset: 0;
+    transform-style: preserve-3d;
+    -webkit-transform-style: preserve-3d;
+    transition: transform 0.95s cubic-bezier(0.34, 1.35, 0.64, 1);
+    border-radius: 0;
+    pointer-events: none;
+}
+
+.transformer-fullcover-container.mode-about .transformer-card-3d {
+    transform: rotateY(180deg);
+}
+
+.transformer-face {
+    position: absolute;
+    inset: 0;
+    width: 100%;
+    height: 100%;
+    backface-visibility: hidden;
+    -webkit-backface-visibility: hidden;
+    border-radius: 0;
+    overflow: hidden;
+    background: #1E293B;
+}
+
+.transformer-face.face-home {
+    transform: rotateY(0deg);
+    -webkit-transform: rotateY(0deg);
+    z-index: 2;
+}
+
+.transformer-face.face-about {
+    transform: rotateY(180deg);
+    -webkit-transform: rotateY(180deg);
+    z-index: 1;
+}
+
+.mode-about .transformer-face.face-home {
+    z-index: 1;
+}
+
+.mode-about .transformer-face.face-about {
+    z-index: 2;
+}
+
+.transformer-face .hero-main-img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    object-position: center 25%;
+    display: block;
+    transform: scale(1.02);
+    transition: transform 1.2s cubic-bezier(0.16, 1, 0.3, 1);
+}
+
+.transformer-fullcover-container:hover .transformer-face .hero-main-img {
+    transform: scale(1.04);
+}
+
+/* Classic Soft Slate-Grey Scrim Gradient Overlay for Brightness & Readability */
+.hero-cover-cinematic-overlay {
+    position: absolute;
+    inset: 0;
+    background: linear-gradient(90deg, 
+            rgba(30, 41, 59, 0.82) 0%, 
+            rgba(30, 41, 59, 0.68) 42%, 
+            rgba(30, 41, 59, 0.22) 72%, 
+            rgba(30, 41, 59, 0.08) 100%),
+        linear-gradient(180deg, 
+            rgba(30, 41, 59, 0.55) 0%, 
+            transparent 24%),
+        linear-gradient(0deg, 
+            rgba(30, 41, 59, 0.55) 0%, 
+            transparent 20%);
+    pointer-events: none;
+    z-index: 2;
+}
+
+@media (max-width: 900px) {
+    .hero-cover-cinematic-overlay {
+        background: linear-gradient(180deg, 
+            rgba(30, 41, 59, 0.82) 0%, 
+            rgba(30, 41, 59, 0.68) 55%, 
+            rgba(30, 41, 59, 0.42) 100%);
+    }
+}
+
+/* --------------------------------------------------------------------------
+   4. CLASSIC ARCHITECTURAL BOTTOM BOUNDARY
+   -------------------------------------------------------------------------- */
+.hero-bottom-boundary {
+    position: absolute;
+    bottom: 0;
+    left: 0;
+    width: 100%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 16px;
+    z-index: 25;
+    pointer-events: none;
+    padding: 0 24px;
+    box-sizing: border-box;
+}
+
+.hero-bottom-boundary .boundary-line {
+    flex: 1;
+    height: 1px;
+    background: linear-gradient(90deg, transparent 5%, rgba(148, 163, 184, 0.25) 25%, rgba(56, 189, 248, 0.65) 50%, rgba(148, 163, 184, 0.25) 75%, transparent 95%);
+}
+
+.hero-bottom-boundary .boundary-crest {
+    width: 36px;
+    height: 36px;
+    border-radius: 50%;
+    background: #1E293B;
+    border: 1px solid rgba(56, 189, 248, 0.5);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    color: #38BDF8;
+    box-shadow: 0 0 20px rgba(56, 189, 248, 0.3);
+}
+
+/* --------------------------------------------------------------------------
+   5. CONTENT OVER FULL-COVER HERO
+   -------------------------------------------------------------------------- */
+.hero-cover-content-stage {
+    position: relative;
+    z-index: 20;
+    width: 100%;
+    min-height: 100vh;
+    display: flex;
+    align-items: center;
+    padding-top: 140px;
+    padding-bottom: 70px;
+    box-sizing: border-box;
+    pointer-events: none;
+}
+
+.hero-cover-inner {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    width: 100%;
+    max-width: 1360px;
+    margin: 0 auto;
+    padding: 0 32px;
+    box-sizing: border-box;
+    pointer-events: none;
+    gap: 40px;
+}
+
+.hero-cover-inner a,
+.hero-cover-inner button,
+.hero-cover-inner .badge-pill,
+.hero-cover-inner .hero-cover-floating-badge {
+    pointer-events: auto;
+}
+
+@media (max-width: 900px) {
+    .hero-cover-inner {
+        padding: 32px 20px;
+        flex-direction: column;
+        align-items: flex-start;
+    }
+}
+
+@media (max-width: 768px) {
+    /* Prevent any horizontal overflow */
+    html, body {
+        overflow-x: hidden !important;
+        max-width: 100vw !important;
+    }
+
+    /* Mobile Header & Navbar */
+    .site-header-overlay {
+        position: absolute !important;
+        top: 0 !important;
+        left: 0 !important;
+        width: 100% !important;
+    }
+
+    .navbar .nav-container {
+        height: 60px !important;
+        padding: 0 16px !important;
+    }
+
+    .navbar .brand-img {
+        width: 38px !important;
+        height: 38px !important;
+    }
+
+    .navbar .brand-name {
+        font-size: 1.08rem !important;
+    }
+
+    .navbar .brand-sub {
+        font-size: 0.68rem !important;
+    }
+
+    /* Hide desktop CTA buttons in navbar on mobile; accessible via mobile menu drawer */
+    .navbar .nav-actions .btn-whatsapp,
+    .navbar .nav-actions .btn-call {
+        display: none !important;
+    }
+
+    .navbar .mobile-menu-btn {
+        display: flex !important;
+        align-items: center;
+        justify-content: center;
+        width: 40px !important;
+        height: 40px !important;
+        background: rgba(255, 255, 255, 0.08) !important;
+        border: 1px solid rgba(56, 189, 248, 0.35) !important;
+        border-radius: 10px !important;
+        color: #38BDF8 !important;
+        cursor: pointer;
+    }
+
+    .mobile-drawer {
+        top: 60px !important;
+        background: rgba(15, 23, 42, 0.98) !important;
+        backdrop-filter: blur(16px) !important;
+        -webkit-backdrop-filter: blur(16px) !important;
+        border-bottom: 1px solid rgba(56, 189, 248, 0.25) !important;
+        padding: 20px 16px !important;
+    }
+
+    .mobile-drawer .nav-link {
+        color: #F8FAFC !important;
+        border-bottom: 1px solid rgba(255, 255, 255, 0.06);
+        padding: 10px 0;
+    }
+
+    .mobile-drawer .nav-link.active,
+    .mobile-drawer .nav-link:hover {
+        color: #38BDF8 !important;
+    }
+
+    /* Mobile Hero Canvas */
+    .transformer-fullcover-container {
+        height: auto !important;
+        min-height: 100vh !important;
+        border-radius: 0 !important;
+    }
+
+    .hero-cover-content-stage {
+        position: relative !important;
+        min-height: 100vh !important;
+        padding-top: 80px !important;
+        padding-bottom: 40px !important;
+    }
+
+    .hero-cover-inner {
+        padding: 16px 14px !important;
+        max-width: 100% !important;
+        box-sizing: border-box !important;
+    }
+
+    .classic-gold-pill {
+        font-size: 0.74rem !important;
+        padding: 5px 12px !important;
+        white-space: normal !important;
+        line-height: 1.35 !important;
+        max-width: 100% !important;
+        margin-bottom: 12px !important;
+    }
+
+    .hero-cover-title {
+        font-size: clamp(1.45rem, 5.2vw, 1.8rem) !important;
+        line-height: 1.22 !important;
+        margin-bottom: 12px !important;
+        word-break: break-word !important;
+        overflow-wrap: break-word !important;
+    }
+
+    .hero-cover-sub {
+        font-size: 0.88rem !important;
+        line-height: 1.55 !important;
+        margin-bottom: 18px !important;
+        color: #CBD5E1 !important;
+    }
+
+    .hero-cta-group {
+        flex-direction: column !important;
+        width: 100% !important;
+        gap: 10px !important;
+    }
+
+    .hero-cta-group .btn {
+        width: 100% !important;
+        font-size: 0.86rem !important;
+        padding: 12px 14px !important;
+        justify-content: center !important;
+        box-sizing: border-box !important;
+    }
+
+    /* Compact Circular Floating Action Buttons on mobile so they don't block content */
+    .floating-contact-dock {
+        bottom: 16px !important;
+        right: 16px !important;
+        gap: 10px !important;
+        z-index: 990 !important;
+    }
+
+    .floating-btn-call, 
+    .floating-btn-whatsapp {
+        padding: 11px !important;
+        border-radius: 50% !important;
+        width: 44px !important;
+        height: 44px !important;
+        min-width: 44px !important;
+        justify-content: center !important;
+        box-shadow: 0 8px 20px rgba(0, 0, 0, 0.4) !important;
+    }
+
+    .floating-btn-call span.float-label,
+    .floating-btn-whatsapp span.float-label {
+        display: none !important;
+    }
+
+    .hero-trust-row {
+        flex-direction: column !important;
+        gap: 8px !important;
+        margin-top: 16px !important;
+        width: 100% !important;
+    }
+
+    .classic-trust-item {
+        width: 100% !important;
+        box-sizing: border-box !important;
+        font-size: 0.8rem !important;
+        padding: 7px 12px !important;
+        justify-content: flex-start !important;
+    }
+
+    .hero-cover-floating-badge {
+        display: none !important;
+    }
+}
+
+.hero-cover-inner .transformer-text-container {
+    max-width: 680px;
+    width: 100%;
+    margin: 0;
+    padding: 0;
+    position: relative;
+}
+
+.transformer-text-pane {
+    position: relative;
+    width: 100%;
+    margin: 0;
+    padding: 0;
+    transition: opacity 0.5s cubic-bezier(0.16, 1, 0.3, 1),
+                transform 0.5s cubic-bezier(0.16, 1, 0.3, 1),
+                filter 0.5s cubic-bezier(0.16, 1, 0.3, 1);
+    will-change: opacity, transform, filter;
+}
+
+.transformer-text-pane.pane-inactive {
+    display: none;
+    opacity: 0;
+    transform: translateY(24px) scale(0.97) rotateX(8deg);
+    filter: blur(6px);
+    pointer-events: none;
+}
+
+.transformer-text-pane.pane-active {
+    display: block;
+    opacity: 1;
+    transform: translateY(0) scale(1) rotateX(0deg);
+    filter: blur(0);
+    pointer-events: all;
+}
+
+.transformer-text-pane.pane-animating-out {
+    display: block;
+    animation: transformerTextOut 0.38s cubic-bezier(0.4, 0, 0.2, 1) forwards;
+}
+
+.transformer-text-pane.pane-animating-in {
+    display: block;
+    animation: transformerTextIn 0.6s cubic-bezier(0.16, 1, 0.3, 1) 0.15s backwards;
+}
+
+@keyframes transformerTextOut {
+    0% {
+        opacity: 1;
+        transform: translateY(0) scale(1) rotateX(0deg);
+        filter: blur(0);
+    }
+    100% {
+        opacity: 0;
+        transform: translateY(-20px) scale(0.96) rotateX(-6deg);
+        filter: blur(6px);
+    }
+}
+
+@keyframes transformerTextIn {
+    0% {
+        opacity: 0;
+        transform: translateY(24px) scale(0.97) rotateX(8deg);
+        filter: blur(6px);
+    }
+    100% {
+        opacity: 1;
+        transform: translateY(0) scale(1) rotateX(0deg);
+        filter: blur(0);
+    }
+}
+
+/* --------------------------------------------------------------------------
+   5. CLASSIC LUXURY TYPOGRAPHY, BUTTONS & BADGES
+   -------------------------------------------------------------------------- */
+.hero-cover-title {
+    color: #FFFFFF !important;
+    font-size: 3.2rem;
+    font-weight: 800;
+    line-height: 1.15;
+    letter-spacing: -0.025em;
+    margin-bottom: 18px;
+    text-shadow: 0 4px 20px rgba(0, 0, 0, 0.5);
+}
+
+@media (max-width: 768px) {
+    .hero-cover-title {
+        font-size: 2.1rem;
+        line-height: 1.22;
+    }
+}
+
+.hero-cover-title .highlight,
+.hero-cover-title .gold-highlight {
+    color: #38BDF8 !important;
+    display: inline;
+    text-shadow: none !important;
+}
+
+.hero-cover-title .highlight .text-mask-item,
+.hero-cover-title .gold-highlight .text-mask-item {
+    background: linear-gradient(135deg, #BAE6FD 0%, #38BDF8 50%, #2563EB 100%) !important;
+    -webkit-background-clip: text !important;
+    -webkit-text-fill-color: transparent !important;
+    color: #38BDF8 !important;
+    display: inline-block;
+}
+
+.hero-cover-sub {
+    color: #E2E8F0 !important;
+    font-size: 1.12rem;
+    line-height: 1.7;
+    margin-bottom: 28px;
+    max-width: 600px;
+    text-shadow: 0 2px 12px rgba(0, 0, 0, 0.6);
+}
+
+/* Refined Academic Pill Badge */
+.classic-gold-pill {
+    background: rgba(30, 41, 59, 0.72) !important;
+    backdrop-filter: blur(10px);
+    -webkit-backdrop-filter: blur(10px);
+    border: 1px solid rgba(56, 189, 248, 0.35) !important;
+    color: #F1F5F9 !important;
+    box-shadow: 0 4px 15px rgba(0, 0, 0, 0.25);
+    display: inline-flex;
+    align-items: center;
+    gap: 8px;
+    padding: 8px 16px;
+    border-radius: 999px;
+    font-size: 0.88rem;
+    font-weight: 600;
+    margin-bottom: 18px;
+}
+
+.classic-gold-pill .gold-dot {
+    width: 8px;
+    height: 8px;
+    border-radius: 50%;
+    background: #38BDF8;
+    display: inline-block;
+    box-shadow: 0 0 8px rgba(56, 189, 248, 0.7);
+}
+
+/* Classic Emerald WhatsApp Button */
+.classic-whatsapp-btn {
+    background: linear-gradient(135deg, #059669 0%, #10B981 100%) !important;
+    border: 1px solid rgba(255, 255, 255, 0.2) !important;
+    box-shadow: 0 10px 25px rgba(16, 185, 129, 0.35) !important;
+    color: #FFFFFF !important;
+    font-weight: 700 !important;
+    letter-spacing: 0.02em;
+    transition: transform 0.25s ease, box-shadow 0.25s ease !important;
+}
+
+.classic-whatsapp-btn:hover {
+    transform: translateY(-2px);
+    box-shadow: 0 14px 30px rgba(16, 185, 129, 0.45) !important;
+}
+
+/* Classic Frosted Glass Call Button */
+.classic-call-btn {
+    background: rgba(255, 255, 255, 0.14) !important;
+    backdrop-filter: blur(10px);
+    -webkit-backdrop-filter: blur(10px);
+    border: 1px solid rgba(255, 255, 255, 0.28) !important;
+    color: #FFFFFF !important;
+    font-weight: 700 !important;
+    letter-spacing: 0.02em;
+    box-shadow: 0 8px 20px rgba(0, 0, 0, 0.25);
+    transition: transform 0.25s ease, background 0.25s ease !important;
+}
+
+.classic-call-btn:hover {
+    background: rgba(255, 255, 255, 0.24) !important;
+    transform: translateY(-2px);
+}
+
+/* Executive Sapphire Action Button (for About Pane) */
+.classic-gold-btn {
+    background: linear-gradient(135deg, #2563EB 0%, #1D4ED8 100%) !important;
+    border: 1px solid rgba(255, 255, 255, 0.2) !important;
+    color: #FFFFFF !important;
+    box-shadow: 0 10px 25px rgba(37, 99, 235, 0.35) !important;
+    font-weight: 700 !important;
+    transition: transform 0.25s ease, box-shadow 0.25s ease !important;
+}
+
+.classic-gold-btn:hover {
+    transform: translateY(-2px);
+    box-shadow: 0 14px 30px rgba(37, 99, 235, 0.45) !important;
+}
+
+/* Classic Trust Items */
+.hero-trust-row.hero-cover-trust {
+    display: flex !important;
+    flex-direction: row !important;
+    align-items: center !important;
+    flex-wrap: wrap !important;
+    gap: 12px !important;
+    padding-top: 0 !important;
+    border-top: none !important;
+    margin-top: 24px !important;
+    width: auto !important;
+}
+
+.classic-trust-item {
+    background: rgba(30, 41, 59, 0.65) !important;
+    backdrop-filter: blur(8px);
+    -webkit-backdrop-filter: blur(8px);
+    border: 1px solid rgba(255, 255, 255, 0.18) !important;
+    padding: 7px 16px;
+    border-radius: 999px;
+    color: #F1F5F9 !important;
+    font-size: 0.88rem;
+    display: inline-flex !important;
+    align-items: center;
+    gap: 8px;
+    width: auto !important;
+}
+
+.classic-trust-item .gold-icon {
+    color: #38BDF8;
+    display: flex;
+    align-items: center;
+}
+
+/* Classic Status Badge (Bottom Right) */
+.hero-cover-floating-badge {
+    position: absolute;
+    bottom: 28px;
+    right: 36px;
+    z-index: 15;
+}
+
+@media (max-width: 900px) {
+    .hero-cover-floating-badge {
+        position: relative;
+        bottom: auto;
+        right: auto;
+        margin-top: 24px;
+    }
+}
+
+.classic-badge-box {
+    background: rgba(30, 41, 59, 0.82) !important;
+    backdrop-filter: blur(14px) !important;
+    -webkit-backdrop-filter: blur(14px) !important;
+    border: 1px solid rgba(56, 189, 248, 0.35) !important;
+    box-shadow: 0 16px 36px rgba(0, 0, 0, 0.35) !important;
+    padding: 12px 20px;
+    border-radius: 16px;
+    display: flex;
+    align-items: center;
+    gap: 12px;
+    color: #FFFFFF;
+}
+
+.classic-badge-icon {
+    background: rgba(56, 189, 248, 0.18) !important;
+    color: #38BDF8 !important;
+    width: 40px;
+    height: 40px;
+    border-radius: 10px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    flex-shrink: 0;
+}
+
+.hero-cover-floating-badge .floating-badge-home,
+.hero-cover-floating-badge .floating-badge-about {
+    transition: opacity 0.4s ease, transform 0.4s ease;
+}
+
+.hero-cover-floating-badge .floating-badge-about {
+    display: none;
+}
+
+.mode-about .hero-cover-floating-badge .floating-badge-home {
+    display: none;
+}
+
+.mode-about .hero-cover-floating-badge .floating-badge-about {
+    display: flex;
+}
+
+/* --------------------------------------------------------------------------
+   6. BELOW-HERO MODE SWITCHING (HOME SECTIONS vs ABOUT SECTIONS)
+   -------------------------------------------------------------------------- */
+.mode-section-container {
+    transition: opacity 0.45s cubic-bezier(0.16, 1, 0.3, 1),
+                transform 0.45s cubic-bezier(0.16, 1, 0.3, 1);
+    will-change: opacity, transform;
+}
+
+.mode-section-container.mode-hidden {
+    display: none;
+    opacity: 0;
+    transform: translateY(24px);
+    pointer-events: none;
+}
+
+.mode-section-container.mode-visible {
+    display: block;
+    opacity: 1;
+    transform: translateY(0);
+    pointer-events: all;
+}
+
+.mode-section-container.mode-animating-out {
+    display: block;
+    opacity: 0;
+    transform: translateY(-16px) scale(0.985);
+    transition: opacity 0.35s ease, transform 0.35s ease;
+}
+
+.mode-section-container.mode-animating-in {
+    display: block;
+    opacity: 1;
+    transform: translateY(0) scale(1);
+    transition: opacity 0.5s ease 0.15s, transform 0.5s ease 0.15s;
+}
+
+/* --------------------------------------------------------------------------
+   7. IN-PAGE SPOTLIGHT RIPPLE (FOR FACULTY, SUBJECTS, ACHIEVERS, LOCATION)
+   -------------------------------------------------------------------------- */
+.section-morph-highlight {
+    animation: targetSectionHighlight 1.6s cubic-bezier(0.16, 1, 0.3, 1);
+}
+
+@keyframes targetSectionHighlight {
+    0% {
+        box-shadow: 0 0 0 0 rgba(56, 189, 248, 0.7);
+        transform: scale(1);
+    }
+    35% {
+        box-shadow: 0 0 0 24px rgba(56, 189, 248, 0);
+        transform: scale(1.012);
+    }
+    100% {
+        box-shadow: 0 0 0 0 rgba(56, 189, 248, 0);
+        transform: scale(1);
+    }
+}

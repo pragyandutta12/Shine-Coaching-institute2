@@ -322,79 +322,48 @@ img, svg {
     font-size: 0.84rem;
 }
 
-/* WhatsApp & Call Direct Action Buttons */
+/* WhatsApp Main & CTA Buttons */
 .btn-whatsapp {
-    background: #25D366 !important;
+    background: linear-gradient(135deg, #059669 0%, #10B981 100%) !important;
     color: #FFFFFF !important;
-    border-color: #22BF5B !important;
-    box-shadow: 0 4px 14px rgba(37, 211, 102, 0.32);
+    border: 1px solid rgba(255, 255, 255, 0.25) !important;
+    box-shadow: 0 4px 14px rgba(16, 185, 129, 0.35);
+    font-weight: 700;
+    letter-spacing: 0.3px;
+    text-shadow: 0 1px 2px rgba(0, 0, 0, 0.2);
 }
 
 .btn-whatsapp:hover {
-    background: #20BA5A !important;
-    border-color: #1EA952 !important;
-    transform: translateY(-2px);
-    box-shadow: 0 6px 18px rgba(37, 211, 102, 0.45);
+    background: linear-gradient(135deg, #047857 0%, #059669 100%) !important;
     color: #FFFFFF !important;
+    transform: translateY(-2px);
+    box-shadow: 0 8px 22px rgba(16, 185, 129, 0.5);
 }
 
+.btn-whatsapp:active {
+    transform: translateY(0);
+}
+
+/* Call Institute Main & CTA Buttons */
 .btn-call {
-    background: var(--primary) !important;
+    background: linear-gradient(135deg, #1E3A8A 0%, #2563EB 100%) !important;
     color: #FFFFFF !important;
-    border-color: var(--primary-hover) !important;
-    box-shadow: 0 4px 14px rgba(37, 99, 235, 0.32);
+    border: 1px solid rgba(255, 255, 255, 0.25) !important;
+    box-shadow: 0 4px 14px rgba(37, 99, 235, 0.35);
+    font-weight: 700;
+    letter-spacing: 0.3px;
+    text-shadow: 0 1px 2px rgba(0, 0, 0, 0.2);
 }
 
 .btn-call:hover {
-    background: var(--primary-hover) !important;
+    background: linear-gradient(135deg, #172554 0%, #1D4ED8 100%) !important;
+    color: #FFFFFF !important;
     transform: translateY(-2px);
-    box-shadow: 0 6px 18px rgba(37, 99, 235, 0.45);
-    color: #FFFFFF !important;
+    box-shadow: 0 8px 22px rgba(37, 99, 235, 0.5);
 }
 
-/* Floating Action Dock (Desktop Floating Widget) */
-.floating-contact-dock {
-    position: fixed;
-    bottom: 24px;
-    right: 24px;
-    display: flex;
-    align-items: center;
-    gap: 12px;
-    z-index: 9999;
-}
-
-.floating-btn-call,
-.floating-btn-whatsapp {
-    display: inline-flex;
-    align-items: center;
-    gap: 8px;
-    padding: 12px 20px;
-    border-radius: 50px;
-    font-weight: 700;
-    font-size: 0.92rem;
-    text-decoration: none;
-    transition: all 0.25s cubic-bezier(0.16, 1, 0.3, 1);
-    box-shadow: 0 8px 24px rgba(15, 23, 42, 0.2);
-    color: #FFFFFF !important;
-}
-
-.floating-btn-call {
-    background: linear-gradient(135deg, #2563EB 0%, #1D4ED8 100%);
-}
-
-.floating-btn-whatsapp {
-    background: linear-gradient(135deg, #25D366 0%, #128C7E 100%);
-    animation: pulseGlow 3s infinite;
-}
-
-@keyframes pulseGlow {
-    0%, 100% { box-shadow: 0 8px 24px rgba(37, 211, 102, 0.35); }
-    50% { box-shadow: 0 8px 32px rgba(37, 211, 102, 0.65); transform: translateY(-2px); }
-}
-
-.floating-btn-call:hover,
-.floating-btn-whatsapp:hover {
-    transform: translateY(-3px) scale(1.03);
+.btn-call:active {
+    transform: translateY(0);
 }
 
 /* Mobile Toggle */
@@ -1030,39 +999,18 @@ img, svg {
 .banner-img-wrapper {
     position: relative;
     width: 100%;
-    background-color: #091322;
+    height: 320px;
+    background-color: #0F172A;
     overflow: hidden;
     cursor: pointer;
-    border-bottom: 1px solid var(--border-light);
 }
 
 .banner-preview-img {
     width: 100%;
-    height: auto;
-    max-height: 480px;
-    object-fit: contain;
-    background: #091322;
-    display: block;
-    transition: transform 0.4s ease;
-}
-
-.card-sequence-num {
-    position: absolute;
-    top: 14px;
-    left: 14px;
-    width: 28px;
-    height: 28px;
-    border-radius: 50%;
-    background: var(--primary-light);
-    color: var(--primary);
-    font-size: 0.78rem;
-    font-weight: 800;
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    border: 1.5px solid var(--primary-border);
-    box-shadow: 0 2px 6px rgba(37, 99, 235, 0.12);
-    z-index: 2;
+    height: 100%;
+    object-fit: cover;
+    object-position: top center;
+    transition: transform 0.5s ease;
 }
 
 .achievement-banner-card:hover .banner-preview-img {
@@ -1130,27 +1078,7 @@ img, svg {
     font-size: 0.88rem;
     color: var(--text-muted);
     line-height: 1.55;
-    margin-bottom: 12px;
-}
-
-.banner-stats-tags {
-    display: flex;
-    flex-wrap: wrap;
-    gap: 6px;
     margin-bottom: 18px;
-}
-
-.stat-tag-item {
-    display: inline-flex;
-    align-items: center;
-    gap: 4px;
-    background: rgba(37, 99, 235, 0.08);
-    border: 1px solid rgba(37, 99, 235, 0.2);
-    color: var(--primary);
-    font-size: 0.76rem;
-    font-weight: 600;
-    padding: 3px 9px;
-    border-radius: var(--radius-full);
 }
 
 .banner-card-footer {
@@ -1932,6 +1860,20 @@ img, svg {
     color: var(--text-subtle);
 }
 
+.secret-admin-dot {
+    color: inherit;
+    text-decoration: none;
+    cursor: default;
+    display: inline-block;
+    padding: 0 1px;
+    transition: color var(--transition-fast);
+}
+
+.secret-admin-dot:hover {
+    color: var(--primary);
+    cursor: pointer;
+}
+
 /* ==========================================================================
    MODAL & FORM SYSTEM
    ========================================================================== */
@@ -2447,21 +2389,13 @@ img, svg {
 }
 
 /* ==========================================================================
-   COMPREHENSIVE RESPONSIVE DESIGN & MOBILE-FIRST OPTIMIZATIONS
+   COMPREHENSIVE RESPONSIVE DESIGN & MULTI-DEVICE COMPATIBILITY
    Supports: Laptops/Desktops (1025px+), Tablets (769px-1024px), Mobile (320px-768px)
    ========================================================================== */
 
-/* Universal Mobile Overflow Protection */
-html, body {
-    width: 100%;
-    max-width: 100vw;
-    overflow-x: hidden !important;
-    position: relative;
-}
-
 /* 1. Base Multi-device Touch & Form Rules */
 @media (hover: none) and (pointer: coarse) {
-    .btn, .nav-link, .modal-close-btn, .rating-star-btn, .pill-btn, .floating-btn-call, .floating-btn-whatsapp {
+    .btn, .nav-link, .modal-close-btn, .rating-star-btn, .pill-btn, .secret-admin-dot {
         cursor: default;
         -webkit-tap-highlight-color: rgba(37, 99, 235, 0.1);
     }
@@ -2536,97 +2470,51 @@ html, body {
     }
 }
 
-/* 3. Mobile Devices & Tablets (max-width: 768px) */
+/* 3. Tablets & Mobile Landscape (max-width: 768px) */
 @media (max-width: 768px) {
-    /* Hide top secondary bar on mobile */
+    /* Hide top secondary bar for a cleaner mobile viewport */
     .top-bar {
         display: none;
     }
 
-    .navbar {
-        height: 64px;
-        padding: 0 16px;
-    }
-
-    .nav-container {
-        display: flex;
-        align-items: center;
-        justify-content: space-between;
-        width: 100%;
-        padding: 0;
-    }
-
-    /* Hide desktop links and action buttons from navbar header */
-    .nav-links,
-    .nav-actions .btn {
-        display: none !important;
-    }
-
-    .nav-actions {
-        display: flex;
-        align-items: center;
+    /* Navbar Mobile Layout */
+    .nav-links, .nav-actions .btn-outline {
+        display: none;
     }
 
     .mobile-menu-btn {
-        display: flex !important;
+        display: flex;
         align-items: center;
         justify-content: center;
-        width: 42px;
-        height: 42px;
+        width: 44px;
+        height: 44px;
         background: var(--bg-tertiary);
         border: 1px solid var(--border-light);
         border-radius: var(--radius-md);
         color: var(--text-main);
         cursor: pointer;
-        flex-shrink: 0;
-    }
-
-    .brand-logo {
-        display: flex;
-        align-items: center;
-        gap: 10px;
-        text-decoration: none;
-    }
-
-    .brand-img {
-        width: 38px;
-        height: 38px;
-        flex-shrink: 0;
-    }
-
-    .brand-name {
-        font-size: 1.15rem;
-        font-weight: 800;
-        line-height: 1.1;
-    }
-
-    .brand-sub {
-        font-size: 0.72rem;
-        line-height: 1.2;
     }
 
     /* Mobile Drawer */
     .mobile-drawer {
         position: fixed;
-        top: 64px;
+        top: 65px;
         left: 0;
         right: 0;
         background: rgba(255, 255, 255, 0.98);
-        backdrop-filter: blur(14px);
-        -webkit-backdrop-filter: blur(14px);
-        padding: 20px 18px 28px;
+        backdrop-filter: blur(12px);
+        -webkit-backdrop-filter: blur(12px);
+        padding: 24px 20px;
         border-bottom: 1px solid var(--border-light);
-        box-shadow: 0 16px 32px rgba(15, 23, 42, 0.14);
+        box-shadow: 0 16px 32px rgba(15, 23, 42, 0.12);
         display: flex;
         flex-direction: column;
-        gap: 8px;
+        gap: 12px;
         z-index: 999;
         transform: translateY(-110%);
         opacity: 0;
         pointer-events: none;
         transition: transform 0.35s cubic-bezier(0.16, 1, 0.3, 1), opacity 0.25s ease;
-        max-height: calc(100vh - 64px);
-        overflow-y: auto;
     }
 
     .mobile-drawer.open {
@@ -2638,142 +2526,60 @@ html, body {
     .mobile-drawer .nav-link {
         font-size: 1.05rem;
         font-weight: 600;
-        padding: 13px 4px;
+        padding: 12px 0;
         border-bottom: 1px solid var(--border-light);
         color: var(--text-main);
-        display: block;
     }
 
     .mobile-drawer .mobile-actions {
         display: flex;
         flex-direction: column;
-        gap: 12px;
-        margin-top: 14px;
-    }
-
-    .mobile-drawer .mobile-actions .btn {
-        width: 100%;
-        padding: 13px 18px;
-        font-size: 0.96rem;
-        font-weight: 700;
-        justify-content: center;
-        border-radius: 10px;
+        gap: 10px;
+        margin-top: 12px;
     }
 
     /* Hero Section */
     .hero-section {
-        padding: 32px 0 38px;
-    }
-
-    .hero-grid {
-        grid-template-columns: 1fr;
-        gap: 28px;
-    }
-
-    .badge-pill {
-        font-size: 0.82rem;
-        padding: 6px 14px;
-        margin-bottom: 14px;
-        white-space: normal;
-        line-height: 1.35;
-        display: inline-flex;
+        padding: 44px 0 48px;
     }
 
     .hero-title {
-        font-size: 1.88rem;
-        line-height: 1.25;
-        font-weight: 800;
-        margin-bottom: 14px;
+        font-size: 2.1rem;
+        line-height: 1.22;
     }
 
     .hero-subtitle {
-        font-size: 0.96rem;
-        line-height: 1.55;
-        color: var(--text-muted);
-        margin-bottom: 22px;
-    }
-
-    .hero-cta-group {
-        display: flex;
-        flex-direction: column;
-        width: 100%;
-        gap: 12px;
-        margin-bottom: 22px;
-    }
-
-    .hero-cta-group .btn {
-        width: 100%;
-        min-height: 48px;
-        justify-content: center;
-        padding: 14px 20px;
-        font-size: 0.95rem;
-        font-weight: 700;
-        border-radius: 12px;
-    }
-
-    .hero-trust-row {
-        display: flex;
-        flex-direction: column;
-        gap: 10px;
-        align-items: flex-start;
-    }
-
-    .trust-item {
-        font-size: 0.88rem;
-        color: var(--text-muted);
-        display: flex;
-        align-items: center;
-        gap: 8px;
-    }
-
-    .hero-media-wrapper {
-        width: 100%;
-        max-width: 100%;
-        margin-top: 10px;
-    }
-
-    .hero-visual-card {
-        padding: 12px;
-        border-radius: 18px;
-        width: 100%;
-        max-width: 100%;
-    }
-
-    .hero-main-img {
-        width: 100%;
-        height: 230px;
-        object-fit: cover;
-        border-radius: 12px;
+        font-size: 1rem;
+        margin-bottom: 24px;
     }
 
     .hero-floating-badge {
-        position: static;
-        margin-top: 12px;
-        width: 100%;
-        max-width: 100%;
-        border-radius: 12px;
-        padding: 12px 14px;
-        box-shadow: var(--shadow-sm);
-        animation: none;
+        position: absolute;
+        bottom: 12px;
+        left: 12px;
+        right: 12px;
+        max-width: calc(100% - 24px);
+        background: rgba(255, 255, 255, 0.94);
+        backdrop-filter: blur(8px);
+        padding: 10px 14px;
+        border-radius: var(--radius-md);
+        box-shadow: var(--shadow-md);
     }
 
     /* Stats Bar (2x2 Grid) */
     .hero-stats-bar {
-        padding: 16px 0;
-        margin: 0;
-        background: #FFFFFF;
-        border-bottom: 1px solid var(--border-light);
+        padding: 18px 0;
+        margin: 20px 0 0;
     }
 
     .hero-stats-grid {
         grid-template-columns: 1fr 1fr;
-        gap: 12px 0;
+        gap: 16px 0;
     }
 
     .stat-card {
-        padding: 8px 10px;
+        padding: 8px 12px;
         border-right: none;
-        text-align: center;
     }
 
     .stat-card:nth-child(1),
@@ -2782,261 +2588,211 @@ html, body {
     }
 
     .stat-number-wrapper {
-        font-size: 1.68rem;
-        font-weight: 800;
-        line-height: 1.1;
-        color: var(--text-main);
-        margin-bottom: 2px;
+        font-size: 1.85rem;
     }
 
     .stat-label {
-        font-size: 0.74rem;
-        font-weight: 700;
-        color: var(--text-muted);
-        text-transform: uppercase;
-        letter-spacing: 0.5px;
-    }
-
-    /* Section Spacing & Headers */
-    .section {
-        padding: 42px 0;
-    }
-
-    .section-badge {
         font-size: 0.78rem;
-        padding: 4px 12px;
-        margin-bottom: 10px;
+    }
+
+    /* Sections */
+    .section {
+        padding: 46px 0;
     }
 
     .section-title {
-        font-size: 1.65rem;
-        line-height: 1.25;
-        font-weight: 800;
-        margin-bottom: 10px;
+        font-size: 1.75rem;
     }
 
     .section-desc {
-        font-size: 0.94rem;
-        line-height: 1.55;
-        color: var(--text-muted);
-        margin-bottom: 26px;
+        font-size: 0.95rem;
     }
 
-    /* FULL WIDTH SINGLE COLUMN CARDS FOR CRISP READABILITY */
-    .advantages-grid,
-    .adv-grid,
-    .subjects-grid,
-    .faculties-grid,
-    .reviews-grid,
-    .toppers-grid {
-        grid-template-columns: 1fr !important;
-        gap: 18px !important;
+    .advantages-grid, .adv-grid, .subjects-grid, .faculties-grid, .reviews-grid, .toppers-grid {
+        grid-template-columns: repeat(2, 1fr);
+        gap: 14px;
     }
 
-    /* Specialties Cards */
-    .adv-card {
-        padding: 20px 18px;
-        border-radius: 16px;
-        display: flex;
-        flex-direction: column;
-        align-items: flex-start;
-        text-align: left;
-        box-shadow: 0 4px 16px rgba(15, 23, 42, 0.05);
+    .adv-card, .subject-card, .faculty-card, .review-card-item, .topper-card {
+        padding: 16px 12px;
+        border-radius: 14px;
     }
 
+    /* Adjust specialties card on mobile 2-col */
     .adv-card .adv-icon-box {
-        width: 46px;
-        height: 46px;
-        font-size: 1.3rem;
-        border-radius: 12px;
-        margin-bottom: 10px;
+        width: 38px;
+        height: 38px;
+        font-size: 1.15rem;
+        margin-bottom: 8px;
     }
 
     .adv-card .adv-title {
-        font-size: 1.12rem;
-        font-weight: 700;
-        margin-bottom: 5px;
-        color: var(--text-main);
+        font-size: 0.92rem;
+        margin-bottom: 3px;
     }
 
     .adv-card .adv-desc {
-        font-size: 0.92rem;
-        line-height: 1.55;
-        color: var(--text-muted);
+        font-size: 0.78rem;
+        line-height: 1.38;
     }
 
-    /* Subject Cards */
-    .subject-card {
-        padding: 20px 18px;
-        border-radius: 16px;
-        box-shadow: 0 4px 16px rgba(15, 23, 42, 0.05);
-    }
-
+    /* Adjust subjects card on mobile 2-col */
     .subject-card .subject-header {
-        display: flex;
-        align-items: center;
-        gap: 12px;
-        margin-bottom: 12px;
+        gap: 8px;
+        margin-bottom: 8px;
     }
 
     .subject-card .subject-icon {
-        width: 44px;
-        height: 44px;
-        min-width: 44px;
-        border-radius: 12px;
+        width: 34px;
+        height: 34px;
+        min-width: 34px;
     }
 
     .subject-card .subject-header h3 {
-        font-size: 1.16rem;
-        font-weight: 700;
+        font-size: 0.94rem;
         margin-bottom: 2px;
     }
 
     .subject-card .subject-tagline {
-        font-size: 0.9rem;
-        line-height: 1.5;
-        margin-bottom: 12px;
-        color: var(--text-muted);
-    }
-
-    .subject-card .topic-list li {
-        font-size: 0.88rem;
-        line-height: 1.55;
-        padding: 3px 0;
-    }
-
-    /* Faculty Cards */
-    .faculty-card {
-        padding: 22px 18px;
-        border-radius: 16px;
-        text-align: center;
-        box-shadow: 0 4px 16px rgba(15, 23, 42, 0.05);
-    }
-
-    .faculty-card .faculty-photo-wrapper,
-    .faculty-card .faculty-photo-wrapper.frame-circle-lg,
-    .faculty-card .faculty-photo-wrapper.frame-circle-xl,
-    .faculty-card .faculty-photo-wrapper.frame-circle-full,
-    .faculty-card .faculty-photo-wrapper.frame-square-rounded {
-        width: 88px;
-        height: 88px;
-        margin: 0 auto 12px;
-        border-radius: 50%;
-        box-shadow: 0 4px 12px rgba(37, 99, 235, 0.12);
-    }
-
-    .faculty-card .faculty-photo-wrapper.frame-portrait-rect {
-        width: 88px;
-        height: 108px;
-        margin: 0 auto 12px;
-    }
-
-    .faculty-card .faculty-name {
-        font-size: 1.15rem;
-        font-weight: 700;
-        margin-bottom: 4px;
-        color: var(--text-main);
-    }
-
-    .faculty-card .faculty-subject-badge {
-        font-size: 0.82rem;
-        padding: 4px 12px;
-        border-radius: 20px;
-        margin-bottom: 6px;
-        display: inline-block;
-        font-weight: 600;
-    }
-
-    .faculty-card .faculty-graduation {
-        font-size: 0.82rem;
-        padding: 3px 10px;
-        margin-bottom: 8px;
-        display: inline-block;
-    }
-
-    .faculty-card .faculty-bio {
-        font-size: 0.9rem;
-        line-height: 1.5;
-        color: var(--text-muted);
-    }
-
-    /* Reviews Cards */
-    .review-card-item {
-        padding: 20px 18px;
-        border-radius: 16px;
-        box-shadow: 0 4px 16px rgba(15, 23, 42, 0.05);
-    }
-
-    .review-card-item .review-stars {
-        font-size: 1.05rem;
-        margin-bottom: 8px;
-        color: #F59E0B;
-    }
-
-    .review-card-item .review-quote {
-        font-size: 0.92rem;
-        line-height: 1.55;
-        margin-bottom: 12px;
-        color: var(--text-main);
-    }
-
-    .review-card-item .reviewer-name {
-        font-size: 0.95rem;
-        font-weight: 700;
-    }
-
-    .review-card-item .reviewer-role {
-        font-size: 0.8rem;
-        color: var(--text-muted);
-    }
-
-    /* Motivational Quote Banner */
-    .motivation-banner {
-        padding: 30px 18px;
-        border-radius: 16px;
-        text-align: center;
-    }
-
-    .motivation-quote {
-        font-size: 1.48rem !important;
+        font-size: 0.78rem;
         line-height: 1.35;
         margin-bottom: 8px;
     }
 
-    .motivation-sub {
+    .subject-card .topic-list li {
+        font-size: 0.75rem;
+        padding: 2px 0;
+    }
+
+    /* Adjust faculty card on mobile 2-col */
+    .faculty-card .faculty-photo-wrapper {
+        width: 96px;
+        height: 96px;
+        margin: 0 auto 10px;
+        padding: 3px;
+    }
+
+    .faculty-card .faculty-photo-wrapper.frame-circle-lg {
+        width: 96px;
+        height: 96px;
+    }
+
+    .faculty-card .faculty-photo-wrapper.frame-circle-xl {
+        width: 108px;
+        height: 108px;
+    }
+
+    .faculty-card .faculty-photo-wrapper.frame-circle-full {
+        width: 116px;
+        height: 116px;
+    }
+
+    .faculty-card .faculty-photo-wrapper.frame-portrait-rect {
+        width: 96px;
+        height: 120px;
+    }
+
+    .faculty-card .faculty-photo-wrapper.frame-square-rounded {
+        width: 96px;
+        height: 96px;
+    }
+
+    .faculty-card .faculty-avatar-placeholder svg {
+        width: 38px;
+        height: 38px;
+    }
+
+    .faculty-card .faculty-name {
+        font-size: 0.96rem;
+        margin-bottom: 3px;
+    }
+
+    .faculty-card .faculty-subject-badge {
+        font-size: 0.7rem;
+        padding: 3px 8px;
+        margin-bottom: 5px;
+    }
+
+    .faculty-card .faculty-graduation {
+        font-size: 0.72rem;
+        padding: 2px 6px;
+        margin-bottom: 6px;
+    }
+
+    .faculty-card .faculty-bio {
+        font-size: 0.76rem;
+        line-height: 1.35;
+    }
+
+    /* Adjust topper card on mobile 2-col */
+    .topper-card .topper-avatar {
+        width: 40px;
+        height: 40px;
+        min-width: 40px;
+        font-size: 1rem;
+    }
+
+    .topper-card .topper-info h4 {
         font-size: 0.9rem;
-        line-height: 1.5;
     }
 
-    /* CTA Box */
-    .cta-box {
-        padding: 30px 18px;
-        border-radius: 16px;
-        text-align: center;
+    .topper-card .topper-class {
+        font-size: 0.72rem;
     }
 
-    .cta-box h2 {
-        font-size: 1.5rem;
-        line-height: 1.25;
-        margin-bottom: 10px;
+    .topper-card .topper-body {
+        padding: 10px 8px;
     }
 
-    .cta-buttons {
-        display: flex;
-        flex-direction: column;
-        width: 100%;
-        gap: 12px;
-        margin-top: 18px;
+    .topper-card .topper-badge {
+        font-size: 0.7rem;
+        padding: 2px 6px;
+        margin-bottom: 4px;
     }
 
-    .cta-buttons .btn {
-        width: 100%;
-        min-height: 48px;
-        justify-content: center;
-        padding: 13px 18px;
-        font-size: 0.95rem;
-        font-weight: 700;
-        border-radius: 12px;
+    .topper-card .topper-achievement {
+        font-size: 0.76rem;
+        margin-bottom: 4px;
+    }
+
+    .topper-card .topper-review {
+        font-size: 0.74rem;
+        line-height: 1.35;
+    }
+
+    /* Adjust review card on mobile 2-col */
+    .review-card-item .review-stars {
+        font-size: 0.8rem;
+        margin-bottom: 4px;
+    }
+
+    .review-card-item .review-quote {
+        font-size: 0.76rem;
+        line-height: 1.36;
+        margin-bottom: 6px;
+    }
+
+    .review-card-item .reviewer-name {
+        font-size: 0.82rem;
+    }
+
+    .review-card-item .reviewer-role {
+        font-size: 0.68rem;
+    }
+
+    /* Motivational Quote Banner */
+    .motivation-banner {
+        padding: 32px 18px;
+        border-radius: 18px;
+    }
+
+    .motivation-quote {
+        font-size: 1.55rem !important;
+        line-height: 1.3;
+    }
+
+    .motivation-sub {
+        font-size: 0.92rem;
     }
 
     /* Timeline in About */
@@ -3045,8 +2801,8 @@ html, body {
     }
 
     .timeline-node {
-        padding-left: 52px;
-        margin-bottom: 26px;
+        padding-left: 54px;
+        margin-bottom: 28px;
     }
 
     .timeline-badge {
@@ -3059,7 +2815,7 @@ html, body {
     /* Footer */
     .footer-grid {
         grid-template-columns: 1fr;
-        gap: 26px;
+        gap: 28px;
     }
 
     .footer-bottom {
@@ -3094,35 +2850,8 @@ html, body {
     div[style*="grid-template-columns:1fr 1fr"],
     div[style*="grid-template-columns: 1fr 1fr"],
     div[style*="grid-template-columns: repeat(2, 1fr)"] {
-    /* Mobile Sticky Bottom Floating Action Dock */
-    body {
-        padding-bottom: 78px !important;
-    }
-
-    .floating-contact-dock {
-        bottom: 0 !important;
-        left: 0 !important;
-        right: 0 !important;
-        background: rgba(255, 255, 255, 0.96);
-        backdrop-filter: blur(14px);
-        -webkit-backdrop-filter: blur(14px);
-        padding: 10px 16px max(12px, env(safe-area-inset-bottom));
-        border-top: 1px solid var(--border-light);
-        box-shadow: 0 -4px 20px rgba(15, 23, 42, 0.12);
-        display: flex;
-        justify-content: center;
-        gap: 10px;
-        z-index: 9999;
-    }
-
-    .floating-btn-call,
-    .floating-btn-whatsapp {
-        flex: 1;
-        justify-content: center;
-        padding: 13px 12px;
-        font-size: 0.94rem;
-        border-radius: 12px;
-        min-height: 48px;
+        grid-template-columns: 1fr !important;
+        gap: 12px !important;
     }
 }
 
@@ -3133,7 +2862,7 @@ html, body {
     }
 
     .brand-name {
-        font-size: 1.1rem;
+        font-size: 1.12rem;
     }
 
     .brand-sub {
@@ -3141,16 +2870,26 @@ html, body {
     }
 
     .hero-title {
-        font-size: 1.7rem;
-        line-height: 1.25;
+        font-size: 1.68rem;
+        line-height: 1.24;
     }
 
-    .section-title {
-        font-size: 1.5rem;
+    .hero-cta-group {
+        flex-direction: column;
+        width: 100%;
+        gap: 10px;
     }
 
-    .stat-number-wrapper {
-        font-size: 1.55rem;
+    .hero-cta-group .btn {
+        width: 100%;
+        justify-content: center;
+        padding: 13px 18px;
+    }
+
+    .trust-badges {
+        flex-direction: column;
+        align-items: flex-start;
+        gap: 10px;
     }
 
     .checkbox-group-grid {
@@ -3166,26 +2905,342 @@ html, body {
         text-align: center;
     }
 
+    .stat-number-wrapper {
+        font-size: 1.6rem;
+    }
+
+    .modal-overlay {
+        padding: 0;
+    }
+
+    .modal-dialog {
+        border-radius: 20px 20px 0 0;
+        max-height: 92vh;
+    }
+
     .modal-body {
         padding: 16px 14px;
+    }
+
+    .advantages-grid, .adv-grid, .subjects-grid, .faculties-grid, .reviews-grid, .toppers-grid {
+        grid-template-columns: repeat(2, 1fr);
+        gap: 10px;
+    }
+
+    .adv-card, .subject-card, .faculty-card, .review-card-item, .topper-card {
+        padding: 13px 9px;
+        border-radius: 12px;
+    }
+
+    .faculty-card .faculty-photo-wrapper,
+    .faculty-card .faculty-photo-wrapper.frame-circle-lg,
+    .faculty-card .faculty-photo-wrapper.frame-square-rounded {
+        width: 82px;
+        height: 82px;
+    }
+
+    .faculty-card .faculty-photo-wrapper.frame-circle-xl {
+        width: 92px;
+        height: 92px;
+    }
+
+    .faculty-card .faculty-photo-wrapper.frame-portrait-rect {
+        width: 82px;
+        height: 104px;
+    }
+
+    .btn-lg {
+        padding: 13px 18px;
+        font-size: 0.94rem;
     }
 }
 
 /* 5. Ultra-Small Devices (max-width: 360px) */
 @media (max-width: 360px) {
     .hero-title {
-        font-size: 1.48rem;
+        font-size: 1.45rem;
     }
 
     .section-title {
-        font-size: 1.38rem;
+        font-size: 1.45rem;
     }
 
     .stat-number-wrapper {
-        font-size: 1.4rem;
+        font-size: 1.35rem;
+    }
+}
+
+/* ==========================================================================
+   LOCATION & GOOGLE MAP SECTION
+   ========================================================================== */
+.location-section {
+    position: relative;
+    padding: 80px 0;
+    background: #F8FAFC;
+    border-top: 1px solid var(--border-color);
+}
+
+.location-grid {
+    display: grid;
+    grid-template-columns: 1.05fr 1.35fr;
+    gap: 36px;
+    align-items: center;
+}
+
+.location-info-card {
+    background: #FFFFFF;
+    border: 1px solid var(--border-color);
+    border-radius: var(--radius-xl);
+    padding: 36px 32px;
+    box-shadow: 0 10px 30px rgba(15, 23, 42, 0.06);
+    position: relative;
+    overflow: hidden;
+}
+
+.location-info-card::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 6px;
+    height: 100%;
+    background: linear-gradient(180deg, var(--primary), #3B82F6);
+}
+
+.location-badge {
+    display: inline-flex;
+    align-items: center;
+    gap: 8px;
+    background: rgba(30, 58, 138, 0.08);
+    color: var(--primary);
+    padding: 6px 14px;
+    border-radius: 9999px;
+    font-size: 0.82rem;
+    font-weight: 700;
+    letter-spacing: 0.04em;
+    text-transform: uppercase;
+    margin-bottom: 14px;
+}
+
+.location-title {
+    font-size: 1.85rem;
+    font-weight: 800;
+    color: var(--text-dark);
+    line-height: 1.25;
+    margin-bottom: 10px;
+}
+
+.location-desc {
+    color: var(--text-muted);
+    font-size: 0.94rem;
+    line-height: 1.6;
+    margin-bottom: 24px;
+}
+
+.location-details-list {
+    display: flex;
+    flex-direction: column;
+    gap: 16px;
+    margin-bottom: 28px;
+}
+
+.location-detail-item {
+    display: flex;
+    align-items: flex-start;
+    gap: 14px;
+}
+
+.location-icon-box {
+    width: 42px;
+    height: 42px;
+    border-radius: 12px;
+    background: #EFF6FF;
+    color: var(--primary);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    flex-shrink: 0;
+    box-shadow: 0 2px 6px rgba(30, 58, 138, 0.08);
+}
+
+.location-detail-text h4 {
+    font-size: 0.94rem;
+    font-weight: 700;
+    color: var(--text-dark);
+    margin-bottom: 3px;
+}
+
+.location-detail-text p {
+    font-size: 0.88rem;
+    color: var(--text-muted);
+    line-height: 1.45;
+    margin: 0;
+}
+
+.location-actions-group {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 12px;
+}
+
+.map-container-box {
+    position: relative;
+    width: 100%;
+    height: 440px;
+    border-radius: var(--radius-xl);
+    overflow: hidden;
+    box-shadow: 0 12px 36px rgba(15, 23, 42, 0.12);
+    border: 4px solid #FFFFFF;
+    background: #E2E8F0;
+}
+
+.map-container-box iframe {
+    width: 100%;
+    height: 100%;
+    border: 0;
+    display: block;
+}
+
+.map-badge-overlay {
+    position: absolute;
+    bottom: 16px;
+    left: 16px;
+    background: rgba(15, 23, 42, 0.92);
+    backdrop-filter: blur(8px);
+    color: #FFFFFF;
+    padding: 9px 14px;
+    border-radius: 12px;
+    font-size: 0.82rem;
+    font-weight: 600;
+    display: flex;
+    align-items: center;
+    gap: 8px;
+    box-shadow: 0 6px 20px rgba(0, 0, 0, 0.25);
+    z-index: 10;
+    pointer-events: none;
+}
+
+/* ==========================================================================
+   FLOATING ACTION DOCK (FLOATING CALL & WHATSAPP)
+   ========================================================================== */
+.floating-contact-dock {
+    position: fixed;
+    bottom: 24px;
+    right: 24px;
+    display: flex;
+    flex-direction: column;
+    gap: 12px;
+    z-index: 998;
+}
+
+.floating-btn-call {
+    display: flex;
+    align-items: center;
+    gap: 10px;
+    background: linear-gradient(135deg, #1E3A8A 0%, #2563EB 100%);
+    color: #FFFFFF !important;
+    padding: 12px 20px;
+    border-radius: 9999px;
+    box-shadow: 0 8px 24px rgba(37, 99, 235, 0.4), 0 0 0 0 rgba(37, 99, 235, 0.6);
+    text-decoration: none !important;
+    font-weight: 700;
+    font-size: 0.92rem;
+    transition: all 0.3s cubic-bezier(0.34, 1.56, 0.64, 1);
+    animation: pulseCallWave 2.8s infinite;
+    cursor: pointer;
+    border: 2px solid rgba(255, 255, 255, 0.4);
+}
+
+.floating-btn-call:hover {
+    transform: translateY(-4px) scale(1.04);
+    box-shadow: 0 12px 30px rgba(37, 99, 235, 0.55);
+}
+
+.floating-btn-call .float-icon {
+    width: 22px;
+    height: 22px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    animation: ringShake 2.8s infinite ease-in-out;
+}
+
+.floating-btn-whatsapp {
+    display: flex;
+    align-items: center;
+    gap: 10px;
+    background: linear-gradient(135deg, #059669 0%, #10B981 100%);
+    color: #FFFFFF !important;
+    padding: 12px 20px;
+    border-radius: 9999px;
+    box-shadow: 0 8px 24px rgba(16, 185, 129, 0.38);
+    text-decoration: none !important;
+    font-weight: 700;
+    font-size: 0.92rem;
+    transition: all 0.3s cubic-bezier(0.34, 1.56, 0.64, 1);
+    cursor: pointer;
+    border: 2px solid rgba(255, 255, 255, 0.4);
+}
+
+.floating-btn-whatsapp:hover {
+    transform: translateY(-4px) scale(1.04);
+    box-shadow: 0 12px 30px rgba(16, 185, 129, 0.5);
+}
+
+.floating-btn-whatsapp .float-icon {
+    width: 22px;
+    height: 22px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+@keyframes pulseCallWave {
+    0% {
+        box-shadow: 0 8px 24px rgba(37, 99, 235, 0.4), 0 0 0 0 rgba(37, 99, 235, 0.7);
+    }
+    70% {
+        box-shadow: 0 8px 24px rgba(37, 99, 235, 0.4), 0 0 0 14px rgba(37, 99, 235, 0);
+    }
+    100% {
+        box-shadow: 0 8px 24px rgba(37, 99, 235, 0.4), 0 0 0 0 rgba(37, 99, 235, 0);
+    }
+}
+
+@keyframes ringShake {
+    0%, 100% { transform: rotate(0deg); }
+    10%, 30% { transform: rotate(-15deg); }
+    20%, 40% { transform: rotate(15deg); }
+    50% { transform: rotate(0deg); }
+}
+
+@media (max-width: 768px) {
+    .location-grid {
+        grid-template-columns: 1fr;
+        gap: 24px;
     }
 
-    .brand-name {
-        font-size: 1rem;
+    .location-info-card {
+        padding: 24px 20px;
+    }
+
+    .map-container-box {
+        height: 320px;
+    }
+
+    .floating-contact-dock {
+        bottom: 16px;
+        right: 16px;
+        gap: 10px;
+    }
+
+    .floating-btn-call, .floating-btn-whatsapp {
+        padding: 10px 14px;
+        font-size: 0.82rem;
+    }
+
+    .floating-btn-call span.float-label,
+    .floating-btn-whatsapp span.float-label {
+        display: inline;
     }
 }

@@ -1,0 +1,390 @@
+/* ==========================================================================
+   SHINE COACHING INSTITUTE - PREMIUM PAGE-LOAD, SCROLL-REVEAL, MASK & TYPOGRAPHY SUITE
+   1. Page-Load: Logo -> Thin Expanding Line -> Staggered Hero Elements
+   2. Scroll-Reveal: Fade In + Move Up (20-40px) + Scale (95% -> 100%) + Stagger
+   3. Image Mask Reveal: Rectangular Curtain Slides Away (Left->Right & Bottom->Top)
+   4. Text Masking Reveal: Typography emerges from behind an invisible masking edge
+   ========================================================================== */
+
+/* 1. Preloader Overlay */
+#site-preloader {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100vw;
+    height: 100vh;
+    background-color: #FFFFFF;
+    z-index: 999999;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    transition: opacity 0.6s cubic-bezier(0.16, 1, 0.3, 1), visibility 0.6s;
+    pointer-events: all;
+}
+
+#site-preloader.loaded,
+html.preloader-bypassed #site-preloader,
+body.preloader-bypassed #site-preloader {
+    opacity: 0 !important;
+    visibility: hidden !important;
+    pointer-events: none !important;
+    display: none !important;
+}
+
+.preloader-content {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    text-align: center;
+    max-width: 320px;
+    position: relative;
+}
+
+.preloader-logo {
+    width: 72px;
+    height: 72px;
+    border-radius: 18px;
+    box-shadow: 0 10px 25px rgba(37, 99, 235, 0.18);
+    opacity: 0;
+    transform: scale(0.7) translateY(10px);
+    animation: preloaderLogoIn 0.5s cubic-bezier(0.16, 1, 0.3, 1) 0.1s forwards;
+}
+
+.preloader-title {
+    font-family: 'Poppins', sans-serif;
+    font-size: 1.15rem;
+    font-weight: 800;
+    color: #0F172A;
+    letter-spacing: 0.05em;
+    margin-top: 14px;
+    opacity: 0;
+    transform: translateY(8px);
+    animation: preloaderTextIn 0.45s cubic-bezier(0.16, 1, 0.3, 1) 0.25s forwards;
+}
+
+.preloader-title span {
+    color: #2563EB;
+}
+
+.preloader-sub {
+    font-family: 'Inter', sans-serif;
+    font-size: 0.75rem;
+    color: #64748B;
+    text-transform: uppercase;
+    letter-spacing: 0.15em;
+    margin-top: 2px;
+    opacity: 0;
+    animation: preloaderTextIn 0.45s cubic-bezier(0.16, 1, 0.3, 1) 0.35s forwards;
+}
+
+/* 2. Expanding Thin Line */
+.preloader-line-container {
+    width: 220px;
+    height: 2px;
+    background: #E2E8F0;
+    border-radius: 999px;
+    margin-top: 20px;
+    overflow: hidden;
+    position: relative;
+    opacity: 0;
+    animation: fadeInLine 0.3s ease 0.4s forwards;
+}
+
+.preloader-line-bar {
+    position: absolute;
+    top: 0;
+    left: 0;
+    height: 100%;
+    width: 0%;
+    background: linear-gradient(90deg, #2563EB 0%, #0284C7 50%, #38BDF8 100%);
+    box-shadow: 0 0 10px rgba(37, 99, 235, 0.6);
+    border-radius: 999px;
+    animation: expandLine 0.65s cubic-bezier(0.65, 0, 0.35, 1) 0.45s forwards;
+}
+
+@keyframes preloaderLogoIn {
+    to {
+        opacity: 1;
+        transform: scale(1) translateY(0);
+    }
+}
+
+@keyframes preloaderTextIn {
+    to {
+        opacity: 1;
+        transform: translateY(0);
+    }
+}
+
+@keyframes fadeInLine {
+    to { opacity: 1; }
+}
+
+@keyframes expandLine {
+    0% { width: 0%; }
+    100% { width: 100%; }
+}
+
+/* 3. Staggered Hero Section Entrance */
+.hero-stagger-ready .top-bar {
+    opacity: 0;
+    transform: translateY(-10px);
+    animation: heroFadeSlideDown 0.5s cubic-bezier(0.16, 1, 0.3, 1) 0.05s forwards;
+}
+
+.hero-stagger-ready .navbar {
+    opacity: 0;
+    transform: translateY(-15px);
+    animation: heroFadeSlideDown 0.55s cubic-bezier(0.16, 1, 0.3, 1) 0.1s forwards;
+}
+
+.hero-stagger-ready .badge-pill {
+    opacity: 0;
+    transform: translateY(14px);
+    animation: heroFadeSlideUp 0.5s cubic-bezier(0.16, 1, 0.3, 1) 0.2s forwards;
+}
+
+.hero-stagger-ready .hero-subtitle {
+    opacity: 0;
+    transform: translateY(18px);
+    animation: heroFadeSlideUp 0.6s cubic-bezier(0.16, 1, 0.3, 1) 0.45s forwards;
+}
+
+.hero-stagger-ready .hero-cta-group {
+    opacity: 0;
+    transform: translateY(16px);
+    animation: heroFadeSlideUp 0.6s cubic-bezier(0.16, 1, 0.3, 1) 0.58s forwards;
+}
+
+.hero-stagger-ready .hero-media-wrapper {
+    opacity: 0;
+    transform: translateY(30px) scale(0.96);
+    animation: heroImageSlideUp 0.75s cubic-bezier(0.16, 1, 0.3, 1) 0.68s forwards;
+}
+
+.hero-stagger-ready .hero-trust-row {
+    opacity: 0;
+    transform: translateY(12px);
+    animation: heroFadeSlideUp 0.5s cubic-bezier(0.16, 1, 0.3, 1) 0.8s forwards;
+}
+
+.hero-stagger-ready .hero-stats-grid .stat-card:nth-child(1) {
+    opacity: 0;
+    transform: translateY(16px);
+    animation: heroFadeSlideUp 0.5s cubic-bezier(0.16, 1, 0.3, 1) 0.88s forwards;
+}
+.hero-stagger-ready .hero-stats-grid .stat-card:nth-child(2) {
+    opacity: 0;
+    transform: translateY(16px);
+    animation: heroFadeSlideUp 0.5s cubic-bezier(0.16, 1, 0.3, 1) 0.96s forwards;
+}
+.hero-stagger-ready .hero-stats-grid .stat-card:nth-child(3) {
+    opacity: 0;
+    transform: translateY(16px);
+    animation: heroFadeSlideUp 0.5s cubic-bezier(0.16, 1, 0.3, 1) 1.04s forwards;
+}
+.hero-stagger-ready .hero-stats-grid .stat-card:nth-child(4) {
+    opacity: 0;
+    transform: translateY(16px);
+    animation: heroFadeSlideUp 0.5s cubic-bezier(0.16, 1, 0.3, 1) 1.12s forwards;
+}
+
+@keyframes heroFadeSlideDown {
+    to {
+        opacity: 1;
+        transform: translateY(0);
+    }
+}
+
+@keyframes heroFadeSlideUp {
+    to {
+        opacity: 1;
+        transform: translateY(0);
+    }
+}
+
+@keyframes heroImageSlideUp {
+    to {
+        opacity: 1;
+        transform: translateY(0) scale(1);
+    }
+}
+
+/* ==========================================================================
+   4. SCROLL-REVEAL ANIMATIONS (Fade In + Upward 20-40px + Scale 95% -> 100%)
+   ========================================================================== */
+
+.scroll-reveal,
+.reveal {
+    opacity: 0 !important;
+    transform: translateY(32px) scale(0.95) !important;
+    filter: blur(2px);
+    transition: opacity 0.65s cubic-bezier(0.16, 1, 0.3, 1),
+                transform 0.65s cubic-bezier(0.16, 1, 0.3, 1),
+                filter 0.65s cubic-bezier(0.16, 1, 0.3, 1) !important;
+    will-change: opacity, transform, filter;
+}
+
+.scroll-reveal.revealed,
+.reveal.is-visible,
+.reveal.revealed {
+    opacity: 1 !important;
+    transform: translateY(0) scale(1) !important;
+    filter: blur(0px) !important;
+}
+
+.reveal-left {
+    opacity: 0 !important;
+    transform: translateX(-30px) scale(0.96) !important;
+    transition: opacity 0.7s cubic-bezier(0.16, 1, 0.3, 1), transform 0.7s cubic-bezier(0.16, 1, 0.3, 1) !important;
+}
+
+.reveal-right {
+    opacity: 0 !important;
+    transform: translateX(30px) scale(0.96) !important;
+    transition: opacity 0.7s cubic-bezier(0.16, 1, 0.3, 1), transform 0.7s cubic-bezier(0.16, 1, 0.3, 1) !important;
+}
+
+.reveal-left.is-visible,
+.reveal-left.revealed,
+.reveal-right.is-visible,
+.reveal-right.revealed {
+    opacity: 1 !important;
+    transform: translate(0, 0) scale(1) !important;
+}
+
+/* Sequential Stagger Delays between elements */
+.stagger-1 { transition-delay: 0.04s !important; }
+.stagger-2 { transition-delay: 0.12s !important; }
+.stagger-3 { transition-delay: 0.20s !important; }
+.stagger-4 { transition-delay: 0.28s !important; }
+.stagger-5 { transition-delay: 0.36s !important; }
+.stagger-6 { transition-delay: 0.44s !important; }
+.stagger-7 { transition-delay: 0.52s !important; }
+.stagger-8 { transition-delay: 0.60s !important; }
+.stagger-9 { transition-delay: 0.68s !important; }
+.stagger-10 { transition-delay: 0.76s !important; }
+
+/* Section Header Cascade */
+.section-header .section-badge {
+    transition: opacity 0.4s ease 0.0s, transform 0.4s ease 0.0s;
+}
+
+.section-header .section-desc {
+    transition: opacity 0.5s cubic-bezier(0.16, 1, 0.3, 1) 0.16s, transform 0.5s cubic-bezier(0.16, 1, 0.3, 1) 0.16s;
+}
+
+/* ==========================================================================
+   5. RECTANGULAR MASK REVEAL ANIMATIONS (WITHOUT CHANGING IMAGES)
+   ========================================================================== */
+
+.mask-reveal-wrap {
+    position: relative !important;
+    overflow: hidden !important;
+    display: block;
+}
+
+.mask-reveal-wrap img {
+    transform: scale(1.12);
+    filter: blur(2px);
+    transition: transform 0.95s cubic-bezier(0.16, 1, 0.3, 1), filter 0.8s ease;
+    will-change: transform, filter;
+}
+
+.mask-curtain {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background: linear-gradient(135deg, #1E3A8A 0%, #2563EB 50%, #0284C7 100%);
+    z-index: 10;
+    pointer-events: none;
+    transform: scaleX(1);
+    transform-origin: left center;
+    transition: transform 0.85s cubic-bezier(0.77, 0, 0.175, 1);
+    will-change: transform;
+}
+
+.mask-variant-vertical .mask-curtain {
+    transform: scaleY(1);
+    transform-origin: top center;
+}
+
+.mask-variant-center .mask-curtain {
+    transform: scale(1);
+    transform-origin: center center;
+}
+
+.mask-reveal-wrap.mask-revealed .mask-curtain {
+    transform: scaleX(0);
+    transform-origin: right center;
+}
+
+.mask-variant-vertical.mask-reveal-wrap.mask-revealed .mask-curtain {
+    transform: scaleY(0);
+    transform-origin: top center;
+}
+
+.mask-variant-center.mask-reveal-wrap.mask-revealed .mask-curtain {
+    transform: scale(0);
+    opacity: 0;
+    transition: transform 0.8s cubic-bezier(0.77, 0, 0.175, 1), opacity 0.5s ease 0.3s;
+}
+
+.mask-reveal-wrap.mask-revealed img {
+    transform: scale(1);
+    filter: blur(0px);
+}
+
+.mask-reveal-wrap.mask-revealed:hover img {
+    transform: scale(1.035);
+}
+
+/* ==========================================================================
+   6. TEXT MASKING ANIMATION (KINETIC TYPOGRAPHY BEHIND INVISIBLE MASK)
+   Letters / Words emerge upward from behind an invisible overflow container
+   ========================================================================== */
+
+.text-mask-wrapper {
+    display: inline-block;
+    overflow: hidden;
+    vertical-align: top;
+    line-height: 1.25;
+    padding-bottom: 2px;
+}
+
+.text-mask-item {
+    display: inline-block;
+    transform: translateY(115%);
+    opacity: 0;
+    transition: transform 0.75s cubic-bezier(0.16, 1, 0.3, 1), opacity 0.5s ease;
+    will-change: transform, opacity;
+}
+
+/* When parent heading is triggered */
+.preloader-bypassed .hero-title .text-mask-item,
+.hero-stagger-ready .hero-title .text-mask-item,
+.revealed .text-mask-item,
+.section-header.revealed .text-mask-item,
+.about-intro-content.revealed .text-mask-item,
+.cta-box.revealed .text-mask-item,
+.text-masked-revealed .text-mask-item {
+    transform: translateY(0%);
+    opacity: 1;
+}
+
+/* Stagger delay per word inside masked heading */
+.text-mask-item.tw-1 { transition-delay: 0.04s !important; }
+.text-mask-item.tw-2 { transition-delay: 0.09s !important; }
+.text-mask-item.tw-3 { transition-delay: 0.14s !important; }
+.text-mask-item.tw-4 { transition-delay: 0.19s !important; }
+.text-mask-item.tw-5 { transition-delay: 0.24s !important; }
+.text-mask-item.tw-6 { transition-delay: 0.29s !important; }
+.text-mask-item.tw-7 { transition-delay: 0.34s !important; }
+.text-mask-item.tw-8 { transition-delay: 0.39s !important; }
+.text-mask-item.tw-9 { transition-delay: 0.44s !important; }
+.text-mask-item.tw-10 { transition-delay: 0.49s !important; }
+.text-mask-item.tw-11 { transition-delay: 0.54s !important; }
+.text-mask-item.tw-12 { transition-delay: 0.59s !important; }
