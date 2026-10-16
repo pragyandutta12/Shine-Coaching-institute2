@@ -25,6 +25,8 @@
     <meta name="twitter:image" content="https://shine-coaching-institute2.vercel.app/assets/images/logo.png">
 
     <link rel="stylesheet" href="css/main.css">
+    <link rel="stylesheet" href="css/page-load.css">
+    <link rel="stylesheet" href="css/page-morph.css">
     <link rel="icon" type="image/png" href="assets/images/logo.png">
 
     <!-- Structured Data (Schema.org / JSON-LD) -->
@@ -57,6 +59,12 @@
     }
     </script>
 
+    <script>
+        if (sessionStorage.getItem('shine_preloader_shown')) {
+            document.documentElement.classList.add('preloader-bypassed');
+        }
+    </script>
+
     <!-- Google tag (gtag.js) -->
     <script async src="https://www.googletagmanager.com/gtag/js?id=G-TQLQ5SBEQ4"></script>
     <script>
@@ -69,8 +77,24 @@
 </head>
 <body>
 
-    <!-- Top Info Bar -->
-    <div class="top-bar">
+    <!-- PRELOADER CHOREOGRAPHY (Logo -> Expanding Line -> Content Fade) -->
+    <div id="site-preloader">
+        <div class="preloader-content">
+            <img src="assets/images/logo.png" alt="Shine Coaching Institute Logo" class="preloader-logo">
+            <div class="preloader-title">SHINE <span>COACHING</span></div>
+            <div class="preloader-sub">Quality • Care • Affordable</div>
+            <div class="preloader-line-container">
+                <div class="preloader-line-bar"></div>
+            </div>
+        </div>
+    </div>
+
+    <!-- ==========================================================================
+         TOP HEADER OVERLAY (SEAMLESSLY FLOATING OVER FULL-COVER HERO)
+         ========================================================================== -->
+    <header class="site-header-overlay" id="siteHeader">
+        <!-- Top Info Bar -->
+        <div class="top-bar">
         <div class="container top-bar-inner">
             <div class="top-bar-item">
                 <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M22 16.92v3a2 2 0 0 1-2.18 2 19.79 19.79 0 0 1-8.63-3.07 19.5 19.5 0 0 1-6-6 19.79 19.79 0 0 1-3.07-8.67A2 2 0 0 1 4.11 2h3a2 2 0 0 1 2 1.72 12.84 12.84 0 0 0 .7 2.81 2 2 0 0 1-.45 2.11L8.09 9.91a16 16 0 0 0 6 6l1.27-1.27a2 2 0 0 1 2.11-.45 12.84 12.84 0 0 0 2.81.7A2 2 0 0 1 22 16.92z"></path></svg>
@@ -142,67 +166,159 @@
             </div>
         </div>
     </nav>
-
-    <!-- HERO SECTION -->
-    <header class="hero-section">
-        <div class="container">
-            <div class="hero-grid">
-                <div class="hero-content reveal">
-                    <div class="badge-pill">
-                        <span class="badge-dot"></span>
-                        <span>Specialized Coaching for Class 7, 8, 9 &amp; 10</span>
-                    </div>
-                    <h1 class="hero-title" id="heroTitle">
-                        <span class="highlight">Building Strong Students.</span> Creating Brighter Futures.
-                    </h1>
-                    <p class="hero-subtitle" id="heroSubtitle">
-                        Quality education, personal attention, and strong academic foundations in Mathematics, Science, Social Science, English, with Class 9 &amp; 10 special options in Chemistry &amp; Assamese.
-                    </p>
-                    <div class="hero-cta-group">
-                        <a href="https://wa.me/919365915462?text=Hello%20Shine%20Coaching%20Institute%2C%20I%20want%20to%20inquire%20about%20admissions%20and%20classes." target="_blank" rel="noopener noreferrer" class="btn btn-whatsapp btn-lg">
-                            <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M21 11.5a8.38 8.38 0 0 1-.9 3.8 8.5 8.5 0 0 1-7.6 4.7 8.38 8.38 0 0 1-3.8-.9L3 21l1.9-5.7a8.38 8.38 0 0 1-.9-3.8 8.5 8.5 0 0 1 4.7-7.6 8.38 8.38 0 0 1 3.8-.9h.5a8.48 8.48 0 0 1 8 8v.5z"></path></svg>
-                            CHAT ON WHATSAPP (9365915462)
-                        </a>
-                        <a href="tel:9365915462" class="btn btn-call btn-lg">
-                            <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M22 16.92v3a2 2 0 0 1-2.18 2 19.79 19.79 0 0 1-8.63-3.07 19.5 19.5 0 0 1-6-6 19.79 19.79 0 0 1-3.07-8.67A2 2 0 0 1 4.11 2h3a2 2 0 0 1 2 1.72 12.84 12.84 0 0 0 .7 2.81 2 2 0 0 1-.45 2.11L8.09 9.91a16 16 0 0 0 6 6l1.27-1.27a2 2 0 0 1 2.11-.45 12.84 12.84 0 0 0 2.81.7A2 2 0 0 1 22 16.92z"></path></svg>
-                            CALL INSTITUTE DIRECTLY
-                        </a>
-                    </div>
-                    <div class="hero-trust-row">
-                        <div class="trust-item">
-                            <div class="trust-icon"><svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M22 11.08V12a10 10 0 1 1-5.93-9.14"></path><polyline points="22 4 12 14.01 9 11.01"></polyline></svg></div>
-                            <span>Personalized Mentorship</span>
-                        </div>
-                        <div class="trust-item">
-                            <div class="trust-icon"><svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M12 2v20M17 5H9.5a3.5 3.5 0 0 0 0 7h5a3.5 3.5 0 0 1 0 7H6"></path></svg></div>
-                            <span>Affordable Fee Model</span>
-                        </div>
-                        <div class="trust-item">
-                            <div class="trust-icon"><svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="12" cy="12" r="10"></circle><polyline points="12 6 12 12 14 14"></polyline></svg></div>
-                            <span>Free Demo Session</span>
-                        </div>
-                    </div>
-                </div>
-
-                <div class="hero-media-wrapper reveal-right">
-                    <div class="hero-visual-card">
-                        <img src="assets/images/hero_classroom.jpg" alt="Coaching classroom environment at Shine Coaching Institute, Nalbari" class="hero-main-img">
-                        <div class="hero-floating-badge">
-                            <div class="floating-badge-icon">
-                                <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M22 11.08V12a10 10 0 1 1-5.93-9.14"></path><polyline points="22 4 12 14.01 9 11.01"></polyline></svg>
-                            </div>
-                            <div>
-                                <div class="floating-badge-title">Concept Clarity Guaranteed</div>
-                                <div class="floating-badge-sub">Step-by-step problem solving</div>
-                            </div>
-                        </div>
-                    </div>
-                </div>
-            </div>
-        </div>
     </header>
 
-    <!-- EXCLUSIVE STATS BAR WITH SMOOTH COUNTER ANIMATIONS -->
+    <!-- ==========================================================================
+     TRANSFORMER HERO SECTION (FULL-COVER HERO VIEWPORT & CLASSIC BOUNDARIES)
+     ========================================================================== -->
+    <header class="hero-section hero-fullcover-showcase" id="heroTransformer">
+        <!-- CLASSIC LUXURY TRANSFORMER CONTAINER (FULL VIEWPORT COVERAGE) -->
+        <div class="transformer-fullcover-container" id="transformerCardContainer">
+
+                <!-- 3D TRANSFORMER CARD (FULL-COVER IMAGE FLIP) -->
+                <div class="transformer-card-3d" id="transformerCard3D">
+                    <!-- FACE 1: HOME CLASSROOM -->
+                    <div class="transformer-face face-home">
+                        <img src="assets/images/hero_classroom.jpg" alt="Coaching classroom environment at Shine Coaching Institute, Nalbari" class="hero-main-img">
+                        <div class="hero-cover-cinematic-overlay"></div>
+                    </div>
+
+                    <!-- FACE 2: ABOUT TEACHERS & FAMILY -->
+                    <div class="transformer-face face-about">
+                        <img src="assets/images/about_teachers.jpg" alt="Teachers and Students of Shine Coaching Institute, Nalbari" class="hero-main-img">
+                        <div class="hero-cover-cinematic-overlay"></div>
+                    </div>
+                </div>
+
+                <!-- KINETIC CONTENT STAGE OVER FULL-COVER HERO -->
+                <div class="hero-cover-content-stage">
+                    <div class="hero-cover-inner">
+                        
+                        <!-- KINETIC TRANSFORMER TEXT STAGE -->
+                        <div class="transformer-text-container" id="transformerTextStage">
+                            
+                            <!-- PANE A: HOME STATE -->
+                            <div class="transformer-text-pane pane-home pane-active" id="paneHome">
+                                <div class="badge-pill classic-gold-pill">
+                                    <span class="badge-dot gold-dot"></span>
+                                    <span>Specialized Coaching for Class 7, 8, 9 &amp; 10 • Nalbari</span>
+                                </div>
+                                <h1 class="hero-title hero-cover-title" id="heroTitle">
+                                    <span class="highlight gold-highlight">Building Strong Students.</span> Creating Brighter Futures.
+                                </h1>
+                                <p class="hero-subtitle hero-cover-sub" id="heroSubtitle">
+                                    Quality education, personal attention, and strong academic foundations in Mathematics, Science, Social Science, English, with Class 9 &amp; 10 special options in Chemistry &amp; Assamese.
+                                </p>
+                                <div class="hero-cta-group">
+                                    <a href="https://wa.me/919365915462?text=Hello%20Shine%20Coaching%20Institute%2C%20I%20want%20to%20inquire%20about%20admissions%20and%20classes." target="_blank" rel="noopener noreferrer" class="btn btn-whatsapp btn-lg classic-whatsapp-btn">
+                                        <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M21 11.5a8.38 8.38 0 0 1-.9 3.8 8.5 8.5 0 0 1-7.6 4.7 8.38 8.38 0 0 1-3.8-.9L3 21l1.9-5.7a8.38 8.38 0 0 1-.9-3.8 8.5 8.5 0 0 1 4.7-7.6 8.38 8.38 0 0 1 3.8-.9h.5a8.48 8.48 0 0 1 8 8v.5z"></path></svg>
+                                        CHAT ON WHATSAPP (9365915462)
+                                    </a>
+                                    <a href="tel:9365915462" class="btn btn-call btn-lg classic-call-btn">
+                                        <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M22 16.92v3a2 2 0 0 1-2.18 2 19.79 19.79 0 0 1-8.63-3.07 19.5 19.5 0 0 1-6-6 19.79 19.79 0 0 1-3.07-8.67A2 2 0 0 1 4.11 2h3a2 2 0 0 1 2 1.72 12.84 12.84 0 0 0 .7 2.81 2 2 0 0 1-.45 2.11L8.09 9.91a16 16 0 0 0 6 6l1.27-1.27a2 2 0 0 1 2.11-.45 12.84 12.84 0 0 0 2.81.7A2 2 0 0 1 22 16.92z"></path></svg>
+                                        CALL INSTITUTE DIRECTLY
+                                    </a>
+                                </div>
+                                <div class="hero-trust-row hero-cover-trust">
+                                    <div class="trust-item classic-trust-item">
+                                        <div class="trust-icon gold-icon"><svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M22 11.08V12a10 10 0 1 1-5.93-9.14"></path><polyline points="22 4 12 14.01 9 11.01"></polyline></svg></div>
+                                        <span>Personalized Mentorship</span>
+                                    </div>
+                                    <div class="trust-item classic-trust-item">
+                                        <div class="trust-icon gold-icon"><svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M12 2v20M17 5H9.5a3.5 3.5 0 0 0 0 7h5a3.5 3.5 0 0 1 0 7H6"></path></svg></div>
+                                        <span>Affordable Fee Model</span>
+                                    </div>
+                                    <div class="trust-item classic-trust-item">
+                                        <div class="trust-icon gold-icon"><svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="12" cy="12" r="10"></circle><polyline points="12 6 12 12 14 14"></polyline></svg></div>
+                                        <span>Free Demo Session</span>
+                                    </div>
+                                </div>
+                            </div>
+
+                            <!-- PANE B: ABOUT US TRANSFORMER STATE -->
+                            <div class="transformer-text-pane pane-about pane-inactive" id="paneAbout">
+                                <div class="badge-pill classic-gold-pill">
+                                    <span class="badge-dot gold-dot"></span>
+                                    <span>The Founding Story &amp; Mission • Nalbari</span>
+                                </div>
+                                <h1 class="hero-title hero-cover-title" id="aboutHeroTitle">
+                                    <span class="highlight gold-highlight">How Shine Began.</span> Guided by Care &amp; Logic.
+                                </h1>
+                                <p class="hero-subtitle hero-cover-sub" id="aboutHeroSubtitle">
+                                    Founded in 2024 by passionate educators in Nalbari to replace rote memorization with deep understanding, patient guidance, and honest affordable education for every child.
+                                </p>
+                                <div class="hero-cta-group">
+                                    <a href="#aboutStorySection" class="btn btn-primary btn-lg classic-gold-btn" onclick="document.getElementById('aboutStorySection').scrollIntoView({behavior:'smooth'}); return false;">
+                                        <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><polygon points="12 2 2 7 12 12 22 7 12 2"></polygon><polyline points="2 17 12 22 22 17"></polyline><polyline points="2 12 12 17 22 12"></polyline></svg>
+                                        EXPLORE OUR STORY
+                                    </a>
+                                    <a href="https://wa.me/919365915462?text=Hello%20Shine%20Coaching%20Institute%2C%20I%20want%20to%20learn%20more%20about%20your%20institute%20and%20values." target="_blank" rel="noopener noreferrer" class="btn btn-whatsapp btn-lg classic-whatsapp-btn">
+                                        <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M21 11.5a8.38 8.38 0 0 1-.9 3.8 8.5 8.5 0 0 1-7.6 4.7 8.38 8.38 0 0 1-3.8-.9L3 21l1.9-5.7a8.38 8.38 0 0 1-.9-3.8 8.5 8.5 0 0 1 4.7-7.6 8.38 8.38 0 0 1 3.8-.9h.5a8.48 8.48 0 0 1 8 8v.5z"></path></svg>
+                                        TALK TO TEACHERS
+                                    </a>
+                                </div>
+                                <div class="hero-trust-row hero-cover-trust">
+                                    <div class="trust-item classic-trust-item">
+                                        <div class="trust-icon gold-icon"><svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><polyline points="20 6 9 17 4 12"></polyline></svg></div>
+                                        <span>Concept First, Never Rote</span>
+                                    </div>
+                                    <div class="trust-item classic-trust-item">
+                                        <div class="trust-icon gold-icon"><svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><polyline points="20 6 9 17 4 12"></polyline></svg></div>
+                                        <span>Patient 1-on-1 Mentoring</span>
+                                    </div>
+                                    <div class="trust-item classic-trust-item">
+                                        <div class="trust-icon gold-icon"><svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><polyline points="20 6 9 17 4 12"></polyline></svg></div>
+                                        <span>Safe, Friendly Atmosphere</span>
+                                    </div>
+                                </div>
+                            </div>
+
+                        </div>
+
+                        <!-- CLASSIC ACADEMY STATUS BADGE (BOTTOM RIGHT) -->
+                        <div class="hero-cover-floating-badge">
+                            <div class="floating-badge-home classic-badge-box">
+                                <div class="floating-badge-icon classic-badge-icon">
+                                    <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M22 11.08V12a10 10 0 1 1-5.93-9.14"></path><polyline points="22 4 12 14.01 9 11.01"></polyline></svg>
+                                </div>
+                                <div>
+                                    <div class="floating-badge-title">Concept Clarity Guaranteed</div>
+                                    <div class="floating-badge-sub">Step-by-step problem solving</div>
+                                </div>
+                            </div>
+                            <div class="floating-badge-about classic-badge-box">
+                                <div class="floating-badge-icon classic-badge-icon">
+                                    <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M17 21v-2a4 4 0 0 0-4-4H5a4 4 0 0 0-4 4v2"></path><circle cx="9" cy="7" r="4"></circle><path d="M23 21v-2a4 4 0 0 0-3-3.87"></path><path d="M16 3.13a4 4 0 0 1 0 7.75"></path></svg>
+                                </div>
+                                <div>
+                                    <div class="floating-badge-title">Shine Coaching Family</div>
+                                    <div class="floating-badge-sub">Educators &amp; Students • Nalbari</div>
+                                </div>
+                            </div>
+                        </div>
+
+                    </div>
+                </div>
+
+                <!-- CLASSIC ARCHITECTURAL BOTTOM BOUNDARY -->
+                <div class="hero-bottom-boundary" aria-hidden="true">
+                    <div class="boundary-line"></div>
+                    <div class="boundary-crest">
+                        <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                            <polygon points="12 2 15.09 8.26 22 9.27 17 14.14 18.18 21.02 12 17.77 5.82 21.02 7 14.14 2 9.27 8.91 8.26 12 2"></polygon>
+                        </svg>
+                    </div>
+                    <div class="boundary-line"></div>
+                </div>
+
+            </div>
+    </header>
+
+    <!-- ==========================================
+         HOME SECTIONS CONTAINER
+         ========================================== -->
+    <div id="homeSectionsContainer" class="mode-section-container mode-visible">
+<!-- EXCLUSIVE STATS BAR WITH SMOOTH COUNTER ANIMATIONS -->
     <section class="hero-stats-bar">
         <div class="container">
             <div class="hero-stats-grid reveal">
@@ -883,7 +999,101 @@
         </div>
     </section>
 
-    <!-- ==========================================================================
+        </div> <!-- END HOME SECTIONS CONTAINER -->
+
+    <!-- ==========================================
+         ABOUT SECTIONS CONTAINER (TRANSFORMER MODE)
+         ========================================== -->
+    <div id="aboutSectionsContainer" class="mode-section-container mode-hidden">
+<!-- SECTION 1: STORY OF SHINE COACHING -->
+        <section class="section" id="aboutStorySection">
+            <div class="container">
+                <div class="about-intro-grid" style="align-items: center;">
+                    <div class="about-intro-content reveal-left">
+                        <span class="section-badge">The Founding Story</span>
+                        <h2>How Shine Coaching Began in Nalbari</h2>
+                        <p>
+                            In 2024, a passionate team of dedicated teachers in Nalbari came together to address a vital need: students were struggling under the pressure of rote memorization, while parents faced steep coaching fees that put quality education out of reach.
+                        </p>
+                        <p>
+                            We believed that every child has the potential to excel when guided with patience, clear logic, and genuine encouragement. We established Shine Coaching Institute at Gopal Mandir, Gopal Bazar with three foundational pillars: <strong>Conceptual Clarity, Individual Care, and Honest Affordability</strong>.
+                        </p>
+                        <p>
+                            Starting with our first batch of enthusiastic learners, our institute has steadily evolved into a trusted neighborhood institution where students build confidence, master core subjects, and achieve outstanding board distinctions.
+                        </p>
+                        <ul class="values-checklist" style="margin-top: 20px;">
+                            <li>
+                                <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><polyline points="20 6 9 17 4 12"></polyline></svg>
+                                Experienced mentors focusing on "Why" rather than just "What"
+                            </li>
+                            <li>
+                                <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><polyline points="20 6 9 17 4 12"></polyline></svg>
+                                Dedicated doubt-clearing sessions and regular practice mock exams
+                            </li>
+                            <li>
+                                <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><polyline points="20 6 9 17 4 12"></polyline></svg>
+                                Safe, friendly, and motivating learning atmosphere for all standards
+                            </li>
+                        </ul>
+                    </div>
+
+                    <div class="about-intro-visual reveal-right" style="position: relative;">
+                        <div style="position: relative; border-radius: var(--radius-xl); overflow: hidden; box-shadow: var(--shadow-lg); border: 1px solid var(--border-light);">
+                            <img src="assets/images/about_teachers.jpg" alt="Teachers and Students of Shine Coaching Institute, Nalbari" class="about-intro-img" style="width: 100%; height: auto; display: block; object-fit: cover;">
+                            <div class="about-photo-badge">
+                                <div>
+                                    <div class="about-photo-title">Shine Coaching Institute Family</div>
+                                    <div class="about-photo-sub">Educators &amp; Students • Nalbari</div>
+                                </div>
+                                <span class="badge-pill" style="margin: 0; background: rgba(37, 99, 235, 0.35); border-color: rgba(147, 197, 253, 0.4); color: #93C5FD; font-size: 0.76rem;">Estd: 2024</span>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- SECTION 2: TEACHING PHILOSOPHY & VALUES -->
+        <section class="section">
+            <div class="container">
+                <div class="section-header reveal text-center">
+                    <span class="section-badge">Our Educational Philosophy</span>
+                    <h2 class="section-title">What Defines Our Teaching</h2>
+                    <p class="section-desc">The core educational values and classroom principles that guide our educators every day.</p>
+                </div>
+
+                <div class="advantages-grid">
+                    <div class="adv-card reveal">
+                        <div class="adv-icon-box">
+                            <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="12" cy="12" r="10"></circle><polyline points="12 6 12 12 14 14"></polyline></svg>
+                        </div>
+                        <h4>Concept First, Memorization Never</h4>
+                        <p>We deconstruct complex theorems and concepts into intuitive steps so students understand <em>why</em> a principle works before learning how to apply it.</p>
+                    </div>
+
+                    <div class="adv-card reveal">
+                        <div class="adv-icon-box">
+                            <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M17 21v-2a4 4 0 0 0-4-4H5a4 4 0 0 0-4 4v2"></path><circle cx="9" cy="7" r="4"></circle><path d="M23 21v-2a4 4 0 0 0-3-3.87"></path><path d="M16 3.13a4 4 0 0 1 0 7.75"></path></svg>
+                        </div>
+                        <h4>Patience With Every Learner</h4>
+                        <p>Every student progresses at their own pace. Our teachers answer questions with patience until every student in the batch is completely confident.</p>
+                    </div>
+
+                    <div class="adv-card reveal">
+                        <div class="adv-icon-box">
+                            <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><polygon points="12 2 2 7 12 12 22 7 12 2"></polygon><polyline points="2 17 12 22 22 17"></polyline><polyline points="2 12 12 17 22 12"></polyline></svg>
+                        </div>
+                        <h4>Continuous Practice &amp; Feedback</h4>
+                        <p>Frequent chapter-wise practice tests with constructive teacher feedback allow students to identify and correct weaknesses before final exams.</p>
+                    </div>
+                </div>
+            </div>
+        </section>
+    
+    </div> <!-- END ABOUT SECTIONS CONTAINER -->
+
+    <!-- SHARED COMMON SECTIONS -->
+<!-- ==========================================================================
          LOCATION & INTERACTIVE GOOGLE MAP SECTION
          ========================================================================== -->
     <section class="location-section" id="location">
@@ -954,7 +1164,7 @@
                         title="Shine Coaching Institute Nalbari Google Map Location">
                     </iframe>
                     <div class="map-badge-overlay">
-                        <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="#F59E0B" stroke-width="2.5"><path d="M21 10c0 7-9 13-9 13s-9-6-9-13a9 9 0 0 1 18 0z"></path><circle cx="12" cy="10" r="3"></circle></svg>
+                        <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="#0284C7" stroke-width="2.5"><path d="M21 10c0 7-9 13-9 13s-9-6-9-13a9 9 0 0 1 18 0z"></path><circle cx="12" cy="10" r="3"></circle></svg>
                         <span>Shine Coaching Institute • Gopal Bazar, Nalbari (Click to Open)</span>
                     </div>
                 </div>
@@ -981,8 +1191,10 @@
             </div>
         </div>
     </section>
+    </div> <!-- END VIEW: HOME -->
 
-    <!-- FOOTER -->
+    
+<!-- FOOTER -->
     <footer class="footer">
         <div class="container">
             <div class="footer-grid">
@@ -1060,5 +1272,7 @@
     <script src="js/config.js"></script>
     <script src="js/db.js"></script>
     <script src="js/main.js"></script>
+    <script src="js/page-load.js"></script>
+    <script src="js/page-morph.js"></script>
 </body>
 </html>
